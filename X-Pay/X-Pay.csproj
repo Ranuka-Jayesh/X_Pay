@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6FE13884-E581-4B9E-B726-CC40DA650726}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>X_Pay</RootNamespace>
+    <AssemblyName>X-Pay</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminControls\AdminEmployees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployees.Designer.cs">
+      <DependentUpon>AdminEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\AssignProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\AssignProjects.Designer.cs">
+      <DependentUpon>AssignProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeePokes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeePokes.Designer.cs">
+      <DependentUpon>EmployeePokes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeeRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeeRegistration.Designer.cs">
+      <DependentUpon>EmployeeRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\EmployeeView.Designer.cs">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\Payments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\Payments.Designer.cs">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\ProjectReturns.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminEmployeeSubActivity\ProjectReturns.Designer.cs">
+      <DependentUpon>ProjectReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminHome.Designer.cs">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminProject.Designer.cs">
+      <DependentUpon>AdminProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminProjectsSubActivity\AddProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminProjectsSubActivity\AddProjects.Designer.cs">
+      <DependentUpon>AddProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminProjectsSubActivity\AllProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminProjectsSubActivity\AllProjects.Designer.cs">
+      <DependentUpon>AllProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminSetting.Designer.cs">
+      <DependentUpon>AdminSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\cal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\cal.Designer.cs">
+      <DependentUpon>cal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDash.Designer.cs">
+      <DependentUpon>AdminDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLoging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLoging.Designer.cs">
+      <DependentUpon>AdminLoging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseUser.Designer.cs">
+      <DependentUpon>ChooseUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpLogin.Designer.cs">
+      <DependentUpon>EmpLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\call.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\call.Designer.cs">
+      <DependentUpon>call.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpHome.Designer.cs">
+      <DependentUpon>EmpHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpMyTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpMyTask.Designer.cs">
+      <DependentUpon>EmpMyTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpMyWallet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\EmpMyWallet.Designer.cs">
+      <DependentUpon>EmpMyWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\FreeTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\FreeTask.Designer.cs">
+      <DependentUpon>FreeTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\DeliveredProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\DeliveredProjects.Designer.cs">
+      <DependentUpon>DeliveredProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\EmpAllProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\EmpAllProjects.Designer.cs">
+      <DependentUpon>EmpAllProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\OngoingProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\OngoingProjects.Designer.cs">
+      <DependentUpon>OngoingProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\ReturnProjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyTaskSubActivities\ReturnProjects.Designer.cs">
+      <DependentUpon>ReturnProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\Income.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\Income.Designer.cs">
+      <DependentUpon>Income.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\TotalIncome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\TotalIncome.Designer.cs">
+      <DependentUpon>TotalIncome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\UpcomingPayments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\MyWalletSubActivities\UpcomingPayments.Designer.cs">
+      <DependentUpon>UpcomingPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\UserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeControls\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeeDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeDash.Designer.cs">
+      <DependentUpon>EmployeeDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loading.Designer.cs">
+      <DependentUpon>loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminControls\AdminEmployees.resx">
+      <DependentUpon>AdminEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\AssignProjects.resx">
+      <DependentUpon>AssignProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\EmployeePokes.resx">
+      <DependentUpon>EmployeePokes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\EmployeeRegistration.resx">
+      <DependentUpon>EmployeeRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\EmployeeView.resx">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\Payments.resx">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminEmployeeSubActivity\ProjectReturns.resx">
+      <DependentUpon>ProjectReturns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminHome.resx">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminProject.resx">
+      <DependentUpon>AdminProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminProjectsSubActivity\AddProjects.resx">
+      <DependentUpon>AddProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminProjectsSubActivity\AllProjects.resx">
+      <DependentUpon>AllProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminSetting.resx">
+      <DependentUpon>AdminSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\cal.resx">
+      <DependentUpon>cal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDash.resx">
+      <DependentUpon>AdminDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLoging.resx">
+      <DependentUpon>AdminLoging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseUser.resx">
+      <DependentUpon>ChooseUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpLogin.resx">
+      <DependentUpon>EmpLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\call.resx">
+      <DependentUpon>call.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\EmpHome.resx">
+      <DependentUpon>EmpHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\EmpMyTask.resx">
+      <DependentUpon>EmpMyTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\EmpMyWallet.resx">
+      <DependentUpon>EmpMyWallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\FreeTask.resx">
+      <DependentUpon>FreeTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyTaskSubActivities\DeliveredProjects.resx">
+      <DependentUpon>DeliveredProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyTaskSubActivities\EmpAllProjects.resx">
+      <DependentUpon>EmpAllProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyTaskSubActivities\OngoingProjects.resx">
+      <DependentUpon>OngoingProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyTaskSubActivities\ReturnProjects.resx">
+      <DependentUpon>ReturnProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyWalletSubActivities\Income.resx">
+      <DependentUpon>Income.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyWalletSubActivities\TotalIncome.resx">
+      <DependentUpon>TotalIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\MyWalletSubActivities\UpcomingPayments.resx">
+      <DependentUpon>UpcomingPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeControls\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeDash.resx">
+      <DependentUpon>EmployeeDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loading.resx">
+      <DependentUpon>loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
