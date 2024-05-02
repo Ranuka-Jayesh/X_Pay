@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSetting));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label13 = new System.Windows.Forms.Label();
             this.CatBT = new System.Windows.Forms.PictureBox();
             this.CATName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Sub = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CatDataView = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SubDataView = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.CATID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CatagoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.CatBT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CatDataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +70,7 @@
             // 
             this.CatBT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CatBT.Image = ((System.Drawing.Image)(resources.GetObject("CatBT.Image")));
-            this.CatBT.Location = new System.Drawing.Point(258, 328);
+            this.CatBT.Location = new System.Drawing.Point(237, 324);
             this.CatBT.Name = "CatBT";
             this.CatBT.Size = new System.Drawing.Size(32, 32);
             this.CatBT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,9 +81,9 @@
             // CATName
             // 
             this.CATName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CATName.Location = new System.Drawing.Point(65, 328);
+            this.CATName.Location = new System.Drawing.Point(62, 324);
             this.CATName.Name = "CATName";
-            this.CATName.Size = new System.Drawing.Size(187, 31);
+            this.CATName.Size = new System.Drawing.Size(167, 31);
             this.CATName.TabIndex = 31;
             // 
             // label1
@@ -97,13 +98,13 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Catagory";
             // 
-            // textBox1
+            // Sub
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(400, 328);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 31);
-            this.textBox1.TabIndex = 29;
+            this.Sub.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sub.Location = new System.Drawing.Point(360, 326);
+            this.Sub.Name = "Sub";
+            this.Sub.Size = new System.Drawing.Size(179, 31);
+            this.Sub.TabIndex = 29;
             // 
             // label8
             // 
@@ -111,7 +112,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(371, 113);
+            this.label8.Location = new System.Drawing.Point(324, 113);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 16);
             this.label8.TabIndex = 27;
@@ -121,83 +122,91 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(597, 324);
+            this.pictureBox1.Location = new System.Drawing.Point(547, 324);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(885, 319);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(715, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 16);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Add Holidays";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(718, 324);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(161, 27);
-            this.dateTimePicker1.TabIndex = 36;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // CatDataView
             // 
+            this.CatDataView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CatDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CatDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CatDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CATID,
+            this.CatagoryName});
+            this.CatDataView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
             this.CatDataView.Location = new System.Drawing.Point(29, 148);
             this.CatDataView.Name = "CatDataView";
-            this.CatDataView.Size = new System.Drawing.Size(261, 150);
+            this.CatDataView.Size = new System.Drawing.Size(241, 150);
             this.CatDataView.TabIndex = 37;
+            this.CatDataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CatDataView_CellContentClick);
             // 
-            // dataGridView1
+            // SubDataView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(374, 148);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(255, 150);
-            this.dataGridView1.TabIndex = 38;
+            this.SubDataView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.SubDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SUBID,
+            this.SUBName});
+            this.SubDataView.Location = new System.Drawing.Point(327, 148);
+            this.SubDataView.Name = "SubDataView";
+            this.SubDataView.Size = new System.Drawing.Size(239, 150);
+            this.SubDataView.TabIndex = 38;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(27, 328);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 324);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 39;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(366, 328);
+            this.pictureBox4.Location = new System.Drawing.Point(323, 328);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(28, 28);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 40;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // CATID
+            // 
+            this.CATID.HeaderText = "CATID";
+            this.CATID.Name = "CATID";
+            // 
+            // CatagoryName
+            // 
+            this.CatagoryName.HeaderText = "CatagoryName";
+            this.CatagoryName.Name = "CatagoryName";
+            // 
+            // SUBID
+            // 
+            this.SUBID.HeaderText = "SUBID";
+            this.SUBID.Name = "SUBID";
+            // 
+            // SUBName
+            // 
+            this.SUBName.HeaderText = "SUBName";
+            this.SUBName.Name = "SUBName";
             // 
             // AdminSetting
             // 
@@ -206,26 +215,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.SubDataView);
             this.Controls.Add(this.CatDataView);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.CatBT);
             this.Controls.Add(this.CATName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Sub);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label13);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "AdminSetting";
             this.Size = new System.Drawing.Size(978, 487);
+            this.Load += new System.EventHandler(this.AdminSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CatBT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CatDataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubDataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
@@ -239,15 +245,16 @@
         private System.Windows.Forms.PictureBox CatBT;
         private System.Windows.Forms.TextBox CATName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Sub;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView CatDataView;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView SubDataView;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CatagoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBName;
     }
 }

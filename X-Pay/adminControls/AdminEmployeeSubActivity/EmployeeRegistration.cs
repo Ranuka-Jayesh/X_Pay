@@ -88,8 +88,6 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             // Check if contact number starts with '0' and has exactly 10 digits
             return contact.StartsWith("0") && contact.Length == 10 && contact.All(char.IsDigit);
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Create a new instance of the database access class
