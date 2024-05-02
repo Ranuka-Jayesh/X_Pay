@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,31 @@ namespace X_Pay.AdminControls
         public AdminEmployees()
         {
             InitializeComponent();
+            employeecounts();
+
         }
 
+        private void employeecounts()
+        {
+            string query = "SELECT COUNT(*) FROM Employee";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters for a simple count
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters);
+
+            if (count == 0)
+            {
+                AllEmp.Text = "00";
+            }
+            else if (count < 10)
+            {
+                AllEmp.Text = "0" + count.ToString();
+            }
+            else
+            {
+                AllEmp.Text = count.ToString();
+            }
+        }
         private void Register_Click(object sender, EventArgs e)
         {
            
@@ -79,6 +103,16 @@ namespace X_Pay.AdminControls
             MainPanel.BringToFront();
             MainPanel.Focus();
             MainPanel.Controls.Add(projectReturns);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -65,7 +65,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.AllEmp = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -550,18 +550,19 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Just Now";
             // 
-            // label7
+            // AllEmp
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label7.Location = new System.Drawing.Point(66, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 32);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "15";
+            this.AllEmp.AutoSize = true;
+            this.AllEmp.BackColor = System.Drawing.Color.Transparent;
+            this.AllEmp.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllEmp.ForeColor = System.Drawing.Color.ForestGreen;
+            this.AllEmp.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AllEmp.Location = new System.Drawing.Point(66, 36);
+            this.AllEmp.Name = "AllEmp";
+            this.AllEmp.Size = new System.Drawing.Size(44, 32);
+            this.AllEmp.TabIndex = 5;
+            this.AllEmp.Text = "15";
+            this.AllEmp.Click += new System.EventHandler(this.label7_Click);
             // 
             // label14
             // 
@@ -580,7 +581,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.AllEmp);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.label9);
@@ -646,6 +647,7 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(978, 487);
             this.MainPanel.TabIndex = 51;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
             // 
             // AdminEmployees
             // 
@@ -736,7 +738,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label AllEmp;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label15;

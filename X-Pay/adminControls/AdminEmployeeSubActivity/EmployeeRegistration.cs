@@ -157,6 +157,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 MessageBox.Show("Data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearvalues();
 
+
             }
             catch (Exception ex)
             {
