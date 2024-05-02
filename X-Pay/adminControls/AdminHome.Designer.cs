@@ -271,7 +271,8 @@
             this.EmployeeCount.Name = "EmployeeCount";
             this.EmployeeCount.Size = new System.Drawing.Size(44, 32);
             this.EmployeeCount.TabIndex = 1;
-            this.EmployeeCount.Text = "10";
+            this.EmployeeCount.Text = "00";
+            this.EmployeeCount.Click += new System.EventHandler(this.EmployeeCount_Click);
             // 
             // label10
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,30 @@ namespace X_Pay.AdminControls
         {
             InitializeComponent();
             displayDays();
+            employeecounts();
         }
 
+        private void employeecounts()
+        {
+            string query = "SELECT COUNT(*) FROM Employee";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters for a simple count
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters);
+
+            if (count == 0)
+            {
+                EmployeeCount.Text = "00";
+            }
+            else if (count < 10)
+            {
+                EmployeeCount.Text = "0" + count.ToString();
+            }
+            else
+            {
+                EmployeeCount.Text = count.ToString();
+            }
+        }
         private void displayDays()
         {
             DateTime now = DateTime.Now;
@@ -99,6 +122,11 @@ namespace X_Pay.AdminControls
         private void panel11_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void EmployeeCount_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void AdminHome_Load(object sender, EventArgs e)
