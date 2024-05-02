@@ -21,7 +21,6 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
         {
             InitializeComponent();
         }
-
         private void EmployeeView_Load(object sender, EventArgs e)
         {
             // Select data to datagridview and display
@@ -150,7 +149,6 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
 
             
         }
-
 
         private void label13_Click(object sender, EventArgs e)
         {
