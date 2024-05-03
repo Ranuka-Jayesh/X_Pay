@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using X_Pay.Employee;
 
 namespace X_Pay
 {
@@ -82,9 +84,47 @@ namespace X_Pay
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Employee.EmployeeDash emd = new Employee.EmployeeDash();
-            emd.Show();
-            this.Hide();
+            string username = EmpUname.Text.Trim();  // Trimming to remove any leading or trailing spaces
+            string password = EmpPsw.Text;
+
+            if (string.IsNullOrWhiteSpace(username) && string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter a username and password.");
+                return; // Exit the method to avoid further processing
+            }
+            else if (string.IsNullOrWhiteSpace(username))
+            {
+                MessageBox.Show("Please enter a username.");
+                return; // Exit the method to avoid further processing
+            }
+            else if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter a password.");
+                return; // Exit the method to avoid further processing
+            }
+
+            var dbInstance = new db();
+            // Properly sanitize inputs (though this is not a replacement for parameterized queries)
+            username = username.Replace("'", "''");
+            password = password.Replace("'", "''");
+
+            var query = $"SELECT * FROM Employee WHERE Username LIKE '{username}' AND Password LIKE '{password}'";
+            var reader = dbInstance.Select(query);
+
+            if (reader != null && reader.HasRows)
+            {
+                EmployeeDash ED = new EmployeeDash();
+                ED.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
         }
+
+
+
+
     }
 }
