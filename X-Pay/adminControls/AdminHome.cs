@@ -19,6 +19,57 @@ namespace X_Pay.AdminControls
             InitializeComponent();
             displayDays();
             employeecounts();
+            projectcount();
+            totIncome();
+            ongoings();
+            Delivered();
+        }
+
+        private void ongoings()
+        {
+            // SQL query to count only the employees with a status of 'Running'
+            string query = "SELECT COUNT(*) FROM Projects WHERE Status = 'Running'";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
+
+            // Format and display the count based on its value
+            if (count == 0)
+            {
+                ongoing.Text = "00";
+            }
+            else if (count < 10)
+            {
+                ongoing.Text = "0" + count.ToString();
+            }
+            else
+            {
+                ongoing.Text = count.ToString();
+            }
+        }
+
+        private void Delivered()
+        {
+
+            string query = "SELECT COUNT(*) FROM Projects WHERE Status = 'Delivered'";
+            SqlParameter[] parameters = new SqlParameter[] { }; 
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters);
+
+            if (count == 0)
+            {
+                Del.Text = "00";
+            }
+            else if (count < 10)
+            {
+                Del.Text = "0" + count.ToString();
+            }
+            else
+            {
+                Del.Text = count.ToString();
+            }
         }
 
         private void employeecounts()
@@ -42,6 +93,50 @@ namespace X_Pay.AdminControls
                 EmployeeCount.Text = count.ToString();
             }
         }
+
+        private void projectcount()
+        {
+            string query = "SELECT COUNT(*) FROM Projects";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters for a simple count
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters);
+
+            if (count == 0)
+            {
+                ProjectCount.Text = "00";
+            }
+            else if (count < 10)
+            {
+                ProjectCount.Text = "0" + count.ToString();
+            }
+            else
+            {
+                ProjectCount.Text = count.ToString();
+            }
+        }
+
+        private void totIncome()
+        {
+            // SQL query to sum the Price column
+            string query = "SELECT SUM(Price) FROM Projects";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed for a simple SUM query
+
+            db database = new db();
+            object result = database.ExecuteScalar(query, parameters);  // ExecuteScalar should return the first column of the first row in the result set
+
+            // Check for DB null values
+            if (result == DBNull.Value || result == null)
+            {
+                TotIncome.Text = "00";
+            }
+            else
+            {
+                decimal totalIncome = Convert.ToDecimal(result); // Convert the result to decimal
+                TotIncome.Text = totalIncome.ToString("N2"); // Format the number as needed, e.g., "N2" for two decimal places
+            }
+        }
+
         private void displayDays()
         {
             DateTime now = DateTime.Now;

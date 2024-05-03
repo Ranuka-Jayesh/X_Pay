@@ -122,8 +122,19 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
         }
         private bool IsValidString(string input)
         {
-            return input.All(char.IsLetter);
+            // Trim the input to remove leading and trailing white spaces
+            input = input.Trim();
+
+            // Check if the string is empty or starts with a space
+            if (string.IsNullOrEmpty(input) || input[0] == ' ')
+            {
+                return false;
+            }
+
+            // Check that all characters are either letters or spaces
+            return input.All(c => char.IsLetter(c) || c == ' ');
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             db DB = new db();
@@ -133,6 +144,7 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 string organization = orgname.Text;
                 string project = projectType.Text;
                 string subject = subjectType.Text;
+                string status = "Running";
                 int prices;
                 if (!int.TryParse(Price.Text, out prices))
                 {
@@ -171,7 +183,7 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 }
 
                 // SQL Query
-                string query = "INSERT INTO Projects  VALUES ('" + Client + "', '" + organization + "', '" + project + "', '" + subject + "', '" + prices + "', '" + Deadline + "', '" + notes + "', '" + selectedFilePath + "', '" + contact + "', '" + acceptionDate + "')";
+                string query = "INSERT INTO Projects  VALUES ('" + Client + "', '" + organization + "', '" + project + "', '" + subject + "', '" + prices + "', '" + Deadline + "', '" + notes + "', '" + selectedFilePath + "', '" + contact + "', '" + acceptionDate + "' ,'"+ status + "')";
                 DB.Execute(query);
                 MessageBox.Show("Data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearForm();

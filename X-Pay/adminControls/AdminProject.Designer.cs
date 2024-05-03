@@ -37,18 +37,18 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.allss = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ongoings = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Del = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -185,7 +185,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.allss);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.label12);
@@ -197,18 +197,18 @@
             this.panel5.TabIndex = 32;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // label6
+            // allss
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label6.Location = new System.Drawing.Point(4, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 32);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "2,000";
+            this.allss.AutoSize = true;
+            this.allss.BackColor = System.Drawing.Color.Transparent;
+            this.allss.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allss.ForeColor = System.Drawing.Color.White;
+            this.allss.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.allss.Location = new System.Drawing.Point(4, 35);
+            this.allss.Name = "allss";
+            this.allss.Size = new System.Drawing.Size(44, 32);
+            this.allss.TabIndex = 20;
+            this.allss.Text = "00";
             // 
             // label17
             // 
@@ -247,7 +247,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ongoings);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label3);
@@ -258,18 +258,18 @@
             this.panel1.Size = new System.Drawing.Size(273, 94);
             this.panel1.TabIndex = 33;
             // 
-            // label1
+            // ongoings
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Location = new System.Drawing.Point(4, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 32);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "20";
+            this.ongoings.AutoSize = true;
+            this.ongoings.BackColor = System.Drawing.Color.Transparent;
+            this.ongoings.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ongoings.ForeColor = System.Drawing.Color.White;
+            this.ongoings.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ongoings.Location = new System.Drawing.Point(4, 35);
+            this.ongoings.Name = "ongoings";
+            this.ongoings.Size = new System.Drawing.Size(44, 32);
+            this.ongoings.TabIndex = 20;
+            this.ongoings.Text = "00";
             // 
             // label2
             // 
@@ -309,7 +309,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.Del);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -331,18 +331,18 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Just Now (April)";
             // 
-            // label4
+            // Del
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label4.Location = new System.Drawing.Point(4, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 32);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "20";
+            this.Del.AutoSize = true;
+            this.Del.BackColor = System.Drawing.Color.Transparent;
+            this.Del.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Del.ForeColor = System.Drawing.Color.White;
+            this.Del.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Del.Location = new System.Drawing.Point(4, 35);
+            this.Del.Name = "Del";
+            this.Del.Size = new System.Drawing.Size(44, 32);
+            this.Del.TabIndex = 20;
+            this.Del.Text = "00";
             // 
             // pictureBox5
             // 
@@ -594,6 +594,7 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(978, 487);
             this.MainPanel.TabIndex = 36;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
             // 
             // AdminProject
             // 
@@ -653,15 +654,15 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label allss;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ongoings;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Del;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel3;
