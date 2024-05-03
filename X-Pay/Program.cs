@@ -16,7 +16,7 @@ namespace X_Pay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDash());
+            Application.Run(new loading());
         }
     }
 }
