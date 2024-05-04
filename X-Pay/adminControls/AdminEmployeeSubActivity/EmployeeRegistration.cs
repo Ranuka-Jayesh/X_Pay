@@ -118,15 +118,6 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             DateTime registrationDate = DateTime.Now;
 
 
-            // Get the next image number and prepare image path
-            string basePath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\Images\UserProfile\";
-            int imageNumber = GetNextImageNumber(basePath);
-            string userImagePath = Path.Combine(basePath, username);
-            Directory.CreateDirectory(userImagePath);
-            string imagelocation = imagelocations;
-            string newImageName = imageNumber.ToString() + Path.GetExtension(imagelocation);
-            string imagePath = Path.Combine(userImagePath, newImageName);
-
             // check password validation
             if (!IsValidPassword(password))
             {
@@ -155,7 +146,16 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 return;
             }
 
-            
+            // Get the next image number
+            string basePath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\Images\UserProfile\";
+            int imageNumber = GetNextImageNumber(basePath);
+
+            string userImagePath = Path.Combine(basePath, username);
+            Directory.CreateDirectory(userImagePath);
+
+            string imagelocation = imagelocations;
+            string newImageName = imageNumber.ToString() + Path.GetExtension(imagelocation); // New image name with number
+            string imagePath = Path.Combine(userImagePath, newImageName);
 
 
             // Build SQL query to insert the new employee record
