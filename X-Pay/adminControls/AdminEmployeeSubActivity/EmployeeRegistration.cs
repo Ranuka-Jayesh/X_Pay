@@ -20,7 +20,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
 {
     public partial class EmployeeRegistration : UserControl
     {
-        string imagelocation = "";
+        string imagelocations = "";
         public EmployeeRegistration()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             {
                 string selectedFileName = openFileDialog.FileName.ToString();
                 dp.Image = Image.FromFile(selectedFileName);
-                imagelocation = selectedFileName;
+                imagelocations = selectedFileName;
             }
         }
 
@@ -88,80 +88,112 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             // Check if contact number starts with '0' and has exactly 10 digits
             return contact.StartsWith("0") && contact.Length == 10 && contact.All(char.IsDigit);
         }
+        private bool UsernameExists(string username, db DB)
+        {
+            using (var reader = DB.Select($"SELECT COUNT(*) FROM Employee WHERE Username = '{username}'"))
+            {
+                reader.Read();
+                return Convert.ToInt32(reader[0]) > 0;
+            }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the database access class
+            // Initialize database connection
             db DB = new db();
+
+            // Read inputs from form fields
+            string firstname = FName.Text;
+            string lastname = LName.Text;
+            string email = Email.Text;
+            string address = Address.Text;
+            string position = Cpossition.Text;
+            string phone = contact.Text;
+            string education = Educations.Text;
+            string skills = skill.Text;
+            DateTime dateOfBirth = BOD.Value;
+            string username = uname.Text;
+            string password = psw.Text;
+            DateTime registrationDate = DateTime.Now;
+
+
+            // Get the next image number and prepare image path
+            string basePath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\Images\UserProfile\";
+            int imageNumber = GetNextImageNumber(basePath);
+            string userImagePath = Path.Combine(basePath, username);
+            Directory.CreateDirectory(userImagePath);
+            string imagelocation = imagelocations;
+            string newImageName = imageNumber.ToString() + Path.GetExtension(imagelocation);
+            string imagePath = Path.Combine(userImagePath, newImageName);
+
+            // check password validation
+            if (!IsValidPassword(password))
+            {
+                MessageBox.Show("Password must be at least 8 characters long and include uppercase, lowercase, digits, and symbols.", "Password Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //check email validation
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("The email address is not in a valid format.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validate contact number
+            if (!IsValidContact(phone))
+            {
+                MessageBox.Show("Invalid contact number. Check your contact number have 10 digits.", "Contact Number Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check if username already exists
+            if (UsernameExists(username, DB))
+            {
+                MessageBox.Show("Username already exists. Please choose another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+
+
+            // Build SQL query to insert the new employee record
+            string query = $@"INSERT INTO Employee (FirstName, LastName, Email, Address, Position, Education, Username, Password, Contact, Skills, DateOfBirth, ProfilePic, Registerdate) 
+                          VALUES ('{firstname}', '{lastname}', '{email}', '{address}', '{position}', '{education}', '{username}', '{password}', '{phone}', '{skills}', '{dateOfBirth}', '{imagePath}', '{registrationDate}')";
+
             try
             {
-                //store image
-                byte[] dp = null;
-                FileStream Streem = new FileStream(imagelocation, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(Streem);
-                dp = binaryReader.ReadBytes((int)Streem.Length);
-
-                //ValueSerializerAttribute initialization
-                string firstname = FName.Text;
-                string lastname = LName.Text;
-                string email = Email.Text;
-                string address = Address.Text;
-                string position = Cpossition.Text;
-                string phone = contact.Text;
-                string education = Educations.Text;
-                string Skill = skill.Text;
-                DateTime dateOfBirth = BOD.Value;
-                string username = uname.Text;
-                string password = psw.Text;
-                DateTime RegistrationDate = DateTime.Now;
-
-                //SQL Query
-                string query = "INSERT INTO Employee VALUES ('" + firstname + "' , '" + lastname + "' , '" + email + "' , '" + address + "' , '" + position + "' ,'" + education + "','" + username + "','" + password + "','" + phone + "','" + Skill + "','" + dateOfBirth + "','"+dp+"' ,'"+RegistrationDate+"')";
-
-
-                //check password validation
-                if (!IsValidPassword(password))
-                {
-                    MessageBox.Show("Password must be at least 8 characters long and include uppercase, lowercase, digits, and symbols.", "Password Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //check email validation
-                if (!IsValidEmail(email))
-                {
-                    MessageBox.Show("The email address is not in a valid format.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Validate contact number
-                if (!IsValidContact(phone))
-                {
-                    MessageBox.Show("Invalid contact number. Check your contact number have 10 digits.", "Contact Number Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //check username validation
-                var idExistsReader = new db().Select("SELECT COUNT(*) FROM Employee WHERE Username = '" + username + "'");
-                idExistsReader.Read();
-                int idCount = Convert.ToInt32(idExistsReader[0]);
-                idExistsReader.Close();
-                if (idCount > 0)
-                {
-                    MessageBox.Show("User already exists. Please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Exit the method without executing the insert query
-                }
-
+                File.Copy(imagelocation, imagePath, true);
+                // Execute SQL query
                 DB.Execute(query);
-                // Show success message box
                 MessageBox.Show("Data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearvalues();
-
-
             }
             catch (Exception ex)
             {
-                // Show error message box if insertion fails
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private int GetNextImageNumber(string basePath)
+        {
+            string numberFilePath = Path.Combine(basePath, "ImageNumber.txt");
+            int imageNumber = 1000; // Start from 1000 if file doesn't exist
+
+            if (File.Exists(numberFilePath))
+            {
+                // Read the last used number
+                string lastNumber = File.ReadAllText(numberFilePath);
+                if (int.TryParse(lastNumber, out int lastNum))
+                {
+                    imageNumber = lastNum + 1; // Increment the last number
+                }
+            }
+
+            // Write the new number back to the file
+            File.WriteAllText(numberFilePath, imageNumber.ToString());
+            return imageNumber;
         }
 
     }

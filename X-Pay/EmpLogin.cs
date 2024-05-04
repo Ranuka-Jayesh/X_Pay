@@ -16,9 +16,11 @@ namespace X_Pay
     public partial class EmpLogin : Form
     {
         public Point mouseLocation;
+
         public EmpLogin()
         {
             InitializeComponent();
+
         }
 
         private void EmpLogin_Load(object sender, EventArgs e)
@@ -84,43 +86,39 @@ namespace X_Pay
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = EmpUname.Text.Trim();  // Trimming to remove any leading or trailing spaces
+            string username = EmpUname.Text.Trim();
             string password = EmpPsw.Text;
 
-            if (string.IsNullOrWhiteSpace(username) && string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Please enter a username and password.");
-                return; // Exit the method to avoid further processing
-            }
-            else if (string.IsNullOrWhiteSpace(username))
-            {
-                MessageBox.Show("Please enter a username.");
-                return; // Exit the method to avoid further processing
-            }
-            else if (string.IsNullOrWhiteSpace(password))
-            {
-                MessageBox.Show("Please enter a password.");
-                return; // Exit the method to avoid further processing
+                MessageBox.Show("Please enter both username and password.");
+                return;
             }
 
-            var dbInstance = new db();
-            // Properly sanitize inputs (though this is not a replacement for parameterized queries)
+            var DB = new db();
+            // Sanitize inputs (better to use parameterized queries to prevent SQL injection)
             username = username.Replace("'", "''");
             password = password.Replace("'", "''");
 
-            var query = $"SELECT * FROM Employee WHERE Username LIKE '{username}' AND Password LIKE '{password}'";
-            var reader = dbInstance.Select(query);
+            var query = $"SELECT EmployeeID FROM Employee WHERE Username = '{username}' AND Password = '{password}'";
+            var reader = DB.Select(query);
 
             if (reader != null && reader.HasRows)
             {
-                EmployeeDash ED = new EmployeeDash();
-                ED.Show();
-                this.Hide();
+                // Assuming EmployeeID is the first column in the result set
+                if (reader.Read())
+                {
+                    int employeeID = reader.GetInt32(0); 
+                    EmployeeDash ED = new EmployeeDash(employeeID);
+                    ED.Show();
+                    this.Hide();
+                }
             }
             else
             {
                 MessageBox.Show("Invalid username or password.");
             }
+
         }
 
 

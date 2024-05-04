@@ -16,11 +16,13 @@ namespace X_Pay.Employee
     public partial class EmployeeDash : Form
     {
         public Point mouseLocation;
-        
-        public EmployeeDash()
+        private int EmployeeID;
+        public EmployeeDash(int empid)
         {
             InitializeComponent();
             ApplyRoundedCorners();
+
+            EmployeeID = empid;
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddEllipse(0, 0, profilepic.Width, profilepic.Height);
@@ -44,6 +46,8 @@ namespace X_Pay.Employee
             MainPanel.BringToFront();
             MainPanel.Focus();
             MainPanel.Controls.Add(EHM);
+
+            
         }
 
         private void Mouse_Down(object sender, MouseEventArgs e)
@@ -132,7 +136,7 @@ namespace X_Pay.Employee
 
         private void profilepic_Click(object sender, EventArgs e)
         {
-            UserProfile up = new UserProfile();
+            UserProfile up = new UserProfile(EmployeeID);
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
