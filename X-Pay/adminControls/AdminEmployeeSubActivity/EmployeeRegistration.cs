@@ -96,6 +96,20 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 return Convert.ToInt32(reader[0]) > 0;
             }
         }
+        private bool IsValidString(string input)
+        {
+            // Regular expression to match only letters and spaces
+            string pattern = @"^[a-zA-Z\s]+$";
+            return Regex.IsMatch(input, pattern);
+        }
+        private bool IsValidAge(DateTime birthDate)
+        {
+            int age = DateTime.Now.Year - birthDate.Year;
+            // Check if a birthday has occurred this year
+            if (birthDate > DateTime.Now.AddYears(-age)) age--;
+            return age >= 16;
+        }
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +131,39 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             string password = psw.Text;
             DateTime registrationDate = DateTime.Now;
 
+            // Validate each string field 
+            if (!IsValidString(firstname))
+            {
+                MessageBox.Show("First name must contain only letters and spaces.", "Invalid First Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IsValidString(lastname))
+            {
+                MessageBox.Show("Last name must contain only letters and spaces.", "Invalid Last Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IsValidString(position))
+            {
+                MessageBox.Show("Position must contain only letters and spaces.", "Invalid Position", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IsValidString(education))
+            {
+                MessageBox.Show("Education must contain only letters and spaces.", "Invalid Education", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IsValidString(skills))
+            {
+                MessageBox.Show("Skills must contain only letters and spaces.", "Invalid Skills", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // check BOD validation
+            if (!IsValidAge(dateOfBirth))
+            {
+                MessageBox.Show("Employee must be at least 16 years old.", "Invalid Age", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // check password validation
             if (!IsValidPassword(password))
