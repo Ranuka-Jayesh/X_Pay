@@ -108,8 +108,32 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 string fileName = Path.GetFileName(selectedFilePath);
                 label.Text = fileName;
 
-                // Optionally, show a message box (comment out if not needed)
-                MessageBox.Show("File selected: " + fileName, "File Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Specify the fixed path to the 'Documents' directory
+                string documentsPath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\Documents";
+
+                // Check if the 'Documents' directory exists, if not create it
+                if (!Directory.Exists(documentsPath))
+                {
+                    Directory.CreateDirectory(documentsPath);
+                }
+
+                // Define the path to save the file inside the 'Documents' directory
+                string destinationFilePath = Path.Combine(documentsPath, fileName);
+
+                // Copy the file to the 'Documents' directory
+                try
+                {
+                    File.Copy(selectedFilePath, destinationFilePath, true);
+                    // Update the stored file path to the new path
+                    selectedFilePath = destinationFilePath;
+
+                    // Optionally, show a message box (comment out if not needed)
+                    MessageBox.Show("File selected and saved to: " + destinationFilePath, "File Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while copying the file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }

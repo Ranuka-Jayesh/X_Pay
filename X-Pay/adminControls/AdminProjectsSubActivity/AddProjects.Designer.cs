@@ -278,7 +278,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 32);
             this.button1.TabIndex = 42;
-            this.button1.Text = "Register";
+            this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

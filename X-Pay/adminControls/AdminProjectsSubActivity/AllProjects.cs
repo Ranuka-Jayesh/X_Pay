@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.IO;
+
 
 namespace X_Pay.AdminControls.AdminProjectsSubActivity
 {
@@ -223,6 +225,41 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"], reader["SubjectType"], reader["contact"], reader["Deadline"], reader["Price"], reader["Status"], reader["AcceptDate"]);
             }
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(PID.Text))
+            {
+                MessageBox.Show("Please enter a Project ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                db database = new db();
+                var reader = database.Select($"SELECT FilePath FROM Projects WHERE ProjectID = {PID.Text}");
+                if (reader.Read())
+                {
+                    string path = reader["FilePath"].ToString();
+                    if (!string.IsNullOrWhiteSpace(path))
+                    {
+                        System.Diagnostics.Process.Start("explorer.exe", path);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No file path associated with this project.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No record found for the given Project ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open file path: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

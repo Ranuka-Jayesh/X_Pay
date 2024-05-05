@@ -73,6 +73,7 @@
             this.note = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataviwe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -520,11 +521,26 @@
             this.panel10.Size = new System.Drawing.Size(200, 3);
             this.panel10.TabIndex = 77;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(723, 361);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 15);
+            this.label6.TabIndex = 118;
+            this.label6.Text = "Download File";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // AllProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.note);
@@ -616,5 +632,6 @@
         private System.Windows.Forms.TextBox note;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label6;
     }
 }
