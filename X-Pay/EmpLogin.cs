@@ -121,8 +121,5 @@ namespace X_Pay
 
         }
 
-
-
-
     }
 }

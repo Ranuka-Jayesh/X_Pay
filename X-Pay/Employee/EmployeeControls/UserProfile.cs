@@ -30,7 +30,7 @@ namespace X_Pay.Employee.EmployeeControls
         //Reguler Expresions Check
         private bool IsValidPassword(string password)
         {
-            if (password.Length > 8)
+            if (password.Length < 8)
                 return false;
 
             bool hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
