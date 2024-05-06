@@ -146,6 +146,12 @@
     <Compile Include="AdminControls\cal.Designer.cs">
       <DependentUpon>cal.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminControls\Incomes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\Incomes.Designer.cs">
+      <DependentUpon>Incomes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminControls\cal.resx">
       <DependentUpon>cal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\Incomes.resx">
+      <DependentUpon>Incomes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDash.resx">
       <DependentUpon>AdminDash.cs</DependentUpon>

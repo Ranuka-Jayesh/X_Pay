@@ -149,5 +149,14 @@ namespace X_Pay
         {
             label6.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminControls.Incomes Incomes = new AdminControls.Incomes();
+            MainPanel.Controls.Clear();
+            MainPanel.BringToFront();
+            MainPanel.Focus();
+            MainPanel.Controls.Add(Incomes);
+        }
     }
 }

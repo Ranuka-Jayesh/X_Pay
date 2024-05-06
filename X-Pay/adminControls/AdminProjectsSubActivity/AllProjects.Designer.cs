@@ -28,18 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label15 = new System.Windows.Forms.Label();
-            this.dataviwe = new System.Windows.Forms.DataGridView();
-            this.PROJECTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLIENTName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeadLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.States = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcceptedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,6 +64,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataviwe = new System.Windows.Forms.DataGridView();
+            this.PROJECTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLIENTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORGANIZATION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PROJECTTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECTTYPES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEADLINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONTACT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AcceptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataviwe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,77 +90,6 @@
             this.label15.Size = new System.Drawing.Size(394, 32);
             this.label15.TabIndex = 37;
             this.label15.Text = "DASHBOARD / PROJECTS / All";
-            // 
-            // dataviwe
-            // 
-            this.dataviwe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.dataviwe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataviwe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PROJECTID,
-            this.CLIENTName,
-            this.Organization,
-            this.ProjectType,
-            this.Subject,
-            this.ContactNo,
-            this.DeadLine,
-            this.Price,
-            this.States,
-            this.AcceptedDate});
-            this.dataviwe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.dataviwe.Location = new System.Drawing.Point(23, 76);
-            this.dataviwe.Name = "dataviwe";
-            this.dataviwe.Size = new System.Drawing.Size(941, 187);
-            this.dataviwe.TabIndex = 38;
-            // 
-            // PROJECTID
-            // 
-            this.PROJECTID.HeaderText = "PROJECTID";
-            this.PROJECTID.Name = "PROJECTID";
-            // 
-            // CLIENTName
-            // 
-            this.CLIENTName.HeaderText = "CLIENTName";
-            this.CLIENTName.Name = "CLIENTName";
-            // 
-            // Organization
-            // 
-            this.Organization.HeaderText = "Organization";
-            this.Organization.Name = "Organization";
-            // 
-            // ProjectType
-            // 
-            this.ProjectType.HeaderText = "ProjectType";
-            this.ProjectType.Name = "ProjectType";
-            // 
-            // Subject
-            // 
-            this.Subject.HeaderText = "Subject";
-            this.Subject.Name = "Subject";
-            // 
-            // ContactNo
-            // 
-            this.ContactNo.HeaderText = "ContactNo";
-            this.ContactNo.Name = "ContactNo";
-            // 
-            // DeadLine
-            // 
-            this.DeadLine.HeaderText = "DeadLine";
-            this.DeadLine.Name = "DeadLine";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // States
-            // 
-            this.States.HeaderText = "States";
-            this.States.Name = "States";
-            // 
-            // AcceptedDate
-            // 
-            this.AcceptedDate.HeaderText = "AcceptedDate";
-            this.AcceptedDate.Name = "AcceptedDate";
             // 
             // label14
             // 
@@ -535,11 +465,85 @@
             this.label6.Text = "Download File";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // dataviwe
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataviwe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataviwe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.dataviwe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataviwe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PROJECTID,
+            this.CLIENTNAME,
+            this.ORGANIZATION,
+            this.PROJECTTYPE,
+            this.SUBJECTTYPES,
+            this.DEADLINE,
+            this.CONTACT,
+            this.PRICE,
+            this.PSTATUS,
+            this.AcceptDate});
+            this.dataviwe.Location = new System.Drawing.Point(29, 79);
+            this.dataviwe.Name = "dataviwe";
+            this.dataviwe.Size = new System.Drawing.Size(946, 186);
+            this.dataviwe.TabIndex = 119;
+            // 
+            // PROJECTID
+            // 
+            this.PROJECTID.HeaderText = "PROJECTID";
+            this.PROJECTID.Name = "PROJECTID";
+            // 
+            // CLIENTNAME
+            // 
+            this.CLIENTNAME.HeaderText = "CLIENTNAME";
+            this.CLIENTNAME.Name = "CLIENTNAME";
+            // 
+            // ORGANIZATION
+            // 
+            this.ORGANIZATION.HeaderText = "ORGANIZATION";
+            this.ORGANIZATION.Name = "ORGANIZATION";
+            // 
+            // PROJECTTYPE
+            // 
+            this.PROJECTTYPE.HeaderText = "PROJECTTYPE";
+            this.PROJECTTYPE.Name = "PROJECTTYPE";
+            // 
+            // SUBJECTTYPES
+            // 
+            this.SUBJECTTYPES.HeaderText = "SUBJECTTYPES";
+            this.SUBJECTTYPES.Name = "SUBJECTTYPES";
+            // 
+            // DEADLINE
+            // 
+            this.DEADLINE.HeaderText = "DEADLINE";
+            this.DEADLINE.Name = "DEADLINE";
+            // 
+            // CONTACT
+            // 
+            this.CONTACT.HeaderText = "CONTACT";
+            this.CONTACT.Name = "CONTACT";
+            // 
+            // PRICE
+            // 
+            this.PRICE.HeaderText = "PRICE";
+            this.PRICE.Name = "PRICE";
+            // 
+            // PSTATUS
+            // 
+            this.PSTATUS.HeaderText = "PSTATUS";
+            this.PSTATUS.Name = "PSTATUS";
+            // 
+            // AcceptDate
+            // 
+            this.AcceptDate.HeaderText = "AcceptDate";
+            this.AcceptDate.Name = "AcceptDate";
+            // 
             // AllProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.Controls.Add(this.dataviwe);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label2);
@@ -574,7 +578,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PID);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataviwe);
             this.Controls.Add(this.label15);
             this.Name = "AllProjects";
             this.Size = new System.Drawing.Size(978, 487);
@@ -588,17 +591,6 @@
         #endregion
 
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataGridView dataviwe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PROJECTID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CLIENTName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Organization;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeadLine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn States;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcceptedDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
@@ -633,5 +625,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataviwe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PROJECTID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLIENTNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ORGANIZATION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PROJECTTYPE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECTTYPES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEADLINE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CONTACT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PSTATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AcceptDate;
     }
 }
