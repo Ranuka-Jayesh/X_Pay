@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,9 +29,15 @@ namespace X_Pay.Employee.EmployeeControls
             upcoming();
             timetracking();
             del();
+            allp();
         }
         private void ongoings()
         {
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            onmon.Text = endDate.ToString("MMMM");
+    
             string query = $"SELECT COUNT(*) FROM AssignProject WHERE EmployeeID = {EmployeeID};";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
 
@@ -92,6 +99,11 @@ namespace X_Pay.Employee.EmployeeControls
         }
         private void upcoming()
         {
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            upmon.Text = endDate.ToString("MMMM");
+
             // Query to get the total of Epayments for the given EmployeeID
             string query = $"SELECT SUM(Amount) FROM Payments WHERE EmployeeID = {EmployeeID} AND Status = 'Pending';";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters in this query
@@ -111,25 +123,42 @@ namespace X_Pay.Employee.EmployeeControls
         }
         private void del()
         {
-            string query = $"SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = {EmployeeID};";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            mon.Text = endDate.ToString("MMMM");
+
+            // Query to get the count of ProjectDelivery entries for the last month for a given EmployeeID
+            string query = "SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = @EmployeeID AND DeliveredDate BETWEEN @StartDate AND @EndDate";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@EmployeeID", SqlDbType.Int) { Value = EmployeeID },
+                new SqlParameter("@StartDate", SqlDbType.DateTime) { Value = startDate },
+                new SqlParameter("@EndDate", SqlDbType.DateTime) { Value = endDate }
+            };
 
             db database = new db();
-            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
+            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly handles parameters and executes the query
 
             // Format and display the count based on its value
-            if (count == 0)
-            {
-                delp.Text = "00";
-            }
-            else if (count < 10)
-            {
-                delp.Text = "0" + count.ToString();
-            }
-            else
-            {
-                delp.Text = count.ToString();
-            }
+            dels.Text = count.ToString("D2"); // Use "D2" format to ensure two digits are displayed
+        }
+        private void allp()
+        {
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            MonthLB1.Text = endDate.ToString("MMMM");
+
+            int ongoingCount = int.Parse(ongoing.Text);  // Assuming ongoing is a TextBox or Label with a numeric string
+            int delsCount = int.Parse(dels.Text);        // Assuming dels is a TextBox or Label with a numeric string
+
+            // Calculate the total
+            int total = ongoingCount + delsCount;
+
+            // Display the total in the 'all' text box
+            all.Text = total.ToString();
         }
 
         private void PreMon_Click(object sender, EventArgs e)

@@ -72,32 +72,39 @@ namespace X_Pay.Employee.EmployeeControls
             ongoings();
             timetracking();
             del();
+            allp();
         }
 
         private void del()
         {
-            string query = $"SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = {EmployeeID};";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            mon.Text = endDate.ToString("MMMM");
+
+            // Query to get the count of ProjectDelivery entries for the last month for a given EmployeeID
+            string query = "SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = @EmployeeID AND DeliveredDate BETWEEN @StartDate AND @EndDate";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@EmployeeID", SqlDbType.Int) { Value = EmployeeID },
+                new SqlParameter("@StartDate", SqlDbType.DateTime) { Value = startDate },
+                new SqlParameter("@EndDate", SqlDbType.DateTime) { Value = endDate }
+            };
 
             db database = new db();
-            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
+            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly handles parameters and executes the query
 
             // Format and display the count based on its value
-            if (count == 0)
-            {
-                delp.Text = "00";
-            }
-            else if (count < 10)
-            {
-                delp.Text = "0" + count.ToString();
-            }
-            else
-            {
-                delp.Text = count.ToString();
-            }
+            delp.Text = count.ToString("D2"); // Use "D2" format to ensure two digits are displayed
         }
         private void ongoings()
         {
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            onmon.Text = endDate.ToString("MMMM");
+
             // SQL query to count only the employees with a status of 'Running'
             string query = $"SELECT COUNT(*) FROM AssignProject WHERE EmployeeID = {EmployeeID};";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
@@ -157,6 +164,28 @@ namespace X_Pay.Employee.EmployeeControls
 
             // Optionally format the rest directly here or in another loop
 
+        }
+        private void allp()
+        {
+            string query = $"SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = {EmployeeID};";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
+
+            // Format and display the count based on its value
+            if (count == 0)
+            {
+                all.Text = "00";
+            }
+            else if (count < 10)
+            {
+                all.Text = "0" + count.ToString();
+            }
+            else
+            {
+                all.Text = count.ToString();
+            }
         }
 
     }

@@ -41,20 +41,22 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.delp = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.ongoing = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Fore = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.all = new System.Windows.Forms.Label();
+            this.AllMon = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
+            this.onmon = new System.Windows.Forms.Label();
+            this.mon = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -65,6 +67,9 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.Controls.Add(this.mon);
+            this.MainPanel.Controls.Add(this.label2);
+            this.MainPanel.Controls.Add(this.onmon);
             this.MainPanel.Controls.Add(this.dataview);
             this.MainPanel.Controls.Add(this.label30);
             this.MainPanel.Controls.Add(this.label13);
@@ -73,17 +78,16 @@
             this.MainPanel.Controls.Add(this.pictureBox4);
             this.MainPanel.Controls.Add(this.button3);
             this.MainPanel.Controls.Add(this.delp);
-            this.MainPanel.Controls.Add(this.label5);
             this.MainPanel.Controls.Add(this.label7);
             this.MainPanel.Controls.Add(this.pictureBox3);
             this.MainPanel.Controls.Add(this.button2);
             this.MainPanel.Controls.Add(this.ongoing);
-            this.MainPanel.Controls.Add(this.label2);
+            this.MainPanel.Controls.Add(this.Fore);
             this.MainPanel.Controls.Add(this.label3);
             this.MainPanel.Controls.Add(this.pictureBox2);
             this.MainPanel.Controls.Add(this.button1);
-            this.MainPanel.Controls.Add(this.label6);
-            this.MainPanel.Controls.Add(this.label17);
+            this.MainPanel.Controls.Add(this.all);
+            this.MainPanel.Controls.Add(this.AllMon);
             this.MainPanel.Controls.Add(this.label12);
             this.MainPanel.Controls.Add(this.pictureBox1);
             this.MainPanel.Controls.Add(this.Register);
@@ -214,18 +218,6 @@
             this.delp.TabIndex = 35;
             this.delp.Text = "20";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(512, 151);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 15);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Just Now (April)";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -278,17 +270,17 @@
             this.ongoing.TabIndex = 30;
             this.ongoing.Text = "20";
             // 
-            // label2
+            // Fore
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(275, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 15);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Just Now (April)";
+            this.Fore.AutoSize = true;
+            this.Fore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.Fore.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fore.ForeColor = System.Drawing.Color.White;
+            this.Fore.Location = new System.Drawing.Point(275, 152);
+            this.Fore.Name = "Fore";
+            this.Fore.Size = new System.Drawing.Size(24, 15);
+            this.Fore.TabIndex = 29;
+            this.Fore.Text = "For";
             // 
             // label3
             // 
@@ -329,30 +321,30 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // label6
+            // all
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label6.Location = new System.Drawing.Point(31, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 32);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "2,000";
+            this.all.AutoSize = true;
+            this.all.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.all.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.all.ForeColor = System.Drawing.Color.White;
+            this.all.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.all.Location = new System.Drawing.Point(31, 116);
+            this.all.Name = "all";
+            this.all.Size = new System.Drawing.Size(82, 32);
+            this.all.TabIndex = 25;
+            this.all.Text = "2,000";
             // 
-            // label17
+            // AllMon
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(35, 151);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(40, 15);
-            this.label17.TabIndex = 24;
-            this.label17.Text = "So Far";
+            this.AllMon.AutoSize = true;
+            this.AllMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.AllMon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllMon.ForeColor = System.Drawing.Color.White;
+            this.AllMon.Location = new System.Drawing.Point(35, 151);
+            this.AllMon.Name = "AllMon";
+            this.AllMon.Size = new System.Drawing.Size(40, 15);
+            this.AllMon.TabIndex = 24;
+            this.AllMon.Text = "So Far";
             // 
             // label12
             // 
@@ -393,6 +385,42 @@
             this.Register.UseVisualStyleBackColor = false;
             this.Register.Click += new System.EventHandler(this.Register_Click);
             // 
+            // onmon
+            // 
+            this.onmon.AutoSize = true;
+            this.onmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.onmon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onmon.ForeColor = System.Drawing.Color.White;
+            this.onmon.Location = new System.Drawing.Point(297, 153);
+            this.onmon.Name = "onmon";
+            this.onmon.Size = new System.Drawing.Size(24, 15);
+            this.onmon.TabIndex = 45;
+            this.onmon.Text = "For";
+            // 
+            // mon
+            // 
+            this.mon.AutoSize = true;
+            this.mon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.mon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mon.ForeColor = System.Drawing.Color.White;
+            this.mon.Location = new System.Drawing.Point(537, 153);
+            this.mon.Name = "mon";
+            this.mon.Size = new System.Drawing.Size(24, 15);
+            this.mon.TabIndex = 47;
+            this.mon.Text = "For";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(512, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 15);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "For";
+            // 
             // EmpMyTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,16 +445,15 @@
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button Register;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label all;
+        private System.Windows.Forms.Label AllMon;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label ongoing;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Fore;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label delp;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button2;
@@ -440,5 +467,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Countdown;
+        private System.Windows.Forms.Label onmon;
+        private System.Windows.Forms.Label mon;
+        private System.Windows.Forms.Label label2;
     }
 }

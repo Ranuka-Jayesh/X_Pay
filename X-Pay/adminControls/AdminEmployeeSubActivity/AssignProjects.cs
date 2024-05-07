@@ -193,7 +193,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 // Create SQL query for insertion into AssignProject table
                 string insertQuery = $"INSERT INTO AssignProject (EmployeeID, ProjectID, Epayment, SpecialNote, FilePath, AssignDate) VALUES ('{employeeIDValue}', '{projectIDValue}', '{epaymentValue}', '{specialNoteValue}', '{filePathValue}', '{currentDate}')";
 
-                string query = "INSERT INTO Payments (EmployeeID, Amount, Status, PaymentDate) VALUES ('" + employeeID.Text + "', '" + Epayment.Text + "', 'Pending', '" + currentDate + "')";
+                string query = "INSERT INTO Payments (EmployeeID, Amount, Status, PaymentDate , ProjectId) VALUES ('" + employeeID.Text + "', '" + Epayment.Text + "', 'Pending', '" + currentDate + "' ,'"+ projectIDValue + "')";
 
                 // Execute the insert query for AssignProject table
                 db db = new db();

@@ -17,7 +17,7 @@ namespace X_Pay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EmpLogin());
+            Application.Run(new AdminDash());
         }
     }
 }

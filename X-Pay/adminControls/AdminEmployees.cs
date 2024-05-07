@@ -17,7 +17,7 @@ namespace X_Pay.AdminControls
         {
             InitializeComponent();
             employeecounts();
-
+            upcoming();
         }
 
         private void employeecounts()
@@ -41,6 +41,31 @@ namespace X_Pay.AdminControls
                 AllEmp.Text = count.ToString();
             }
         }
+        private void upcoming()
+        {
+            // Define the date range for the last month
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            MonthLB3.Text = endDate.ToString("MMMM");
+
+            // Query to get the total of Epayments for the given EmployeeID
+            string query = $"SELECT SUM(Amount) FROM Payments";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters in this query
+
+            db database = new db();
+            decimal? totalEpayments = database.ExecuteScalar(query, parameters);
+
+            // Formatting and displaying the total Epayments in a label
+            if (totalEpayments == null || totalEpayments == 0)
+            {
+                TotIncome.Text = "No payments";
+            }
+            else
+            {
+                TotIncome.Text = $"{totalEpayments}"; // Formats the number as currency
+            }
+        }
+
         private void Register_Click(object sender, EventArgs e)
         {
            

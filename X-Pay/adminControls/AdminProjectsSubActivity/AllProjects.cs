@@ -24,13 +24,30 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
 
         private void AllProjects_Load(object sender, EventArgs e)
         {
-            // Select data to datagridview and display
-            var reader = new db().Select("SELECT * FROM Projects");
-            dataviwe.Rows.Clear();
+            string fl = filter.Text;  // Get the filter text
+            string query;
+
+            // Check if the filter is set to 'All', or specific statuses like 'Pending', 'Running', or 'Delivered'
+            if (fl == "All")
+            {
+                query = "SELECT * FROM Projects"; // Query to select all records
+            }
+            else
+            {
+                query = "SELECT * FROM Projects WHERE Status = '" + fl + "'"; // Query to select records based on the filter
+            }
+
+            var reader = new db().Select(query);  // Execute the query using your method
+            dataviwe.Rows.Clear();  // Clear the DataGridView
+
             while (reader.Read())
             {
-                dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"],reader["SubjectType"], reader["contact"], reader["Deadline"], reader["Price"], reader["Status"] , reader["AcceptDate"]);
+                // Add rows to DataGridView from the query result
+                dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"],
+                                  reader["SubjectType"], reader["Contact"], reader["Deadline"], reader["Price"],
+                                  reader["Status"], reader["AcceptDate"]);
             }
+
             LoadCategoriesIntoComboBox();
             LoadSubjectsIntoComboBox();
         }
@@ -295,6 +312,38 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string fl = filter.Text;  // Get the filter text
+            string query;
+
+            // Check if the filter is set to 'All', or specific statuses like 'Pending', 'Running', or 'Delivered'
+            if (fl == "All")
+            {
+                query = "SELECT * FROM Projects"; // Query to select all records
+            }
+            else
+            {
+                query = "SELECT * FROM Projects WHERE Status = '" + fl + "'"; // Query to select records based on the filter
+            }
+
+            var reader = new db().Select(query);  // Execute the query using your method
+            dataviwe.Rows.Clear();  // Clear the DataGridView
+
+            while (reader.Read())
+            {
+                // Add rows to DataGridView from the query result
+                dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"],
+                                  reader["SubjectType"], reader["Contact"], reader["Deadline"], reader["Price"],
+                                  reader["Status"], reader["AcceptDate"]);
+            }
         }
     }
 }

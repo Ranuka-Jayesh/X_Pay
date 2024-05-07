@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -75,6 +75,7 @@
             this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AcceptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataviwe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -420,6 +421,7 @@
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(203, 24);
             this.status.TabIndex = 115;
+            this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
             // 
             // note
             // 
@@ -469,9 +471,9 @@
             // 
             // dataviwe
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataviwe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataviwe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataviwe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
             this.dataviwe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataviwe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -540,11 +542,31 @@
             this.AcceptDate.HeaderText = "AcceptDate";
             this.AcceptDate.Name = "AcceptDate";
             // 
+            // filter
+            // 
+            this.filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filter.ForeColor = System.Drawing.Color.White;
+            this.filter.FormattingEnabled = true;
+            this.filter.Items.AddRange(new object[] {
+            "All",
+            "Running",
+            "Pending",
+            "Delivered"});
+            this.filter.Location = new System.Drawing.Point(772, 42);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(203, 24);
+            this.filter.TabIndex = 120;
+            this.filter.Text = "ALL";
+            this.filter.SelectedIndexChanged += new System.EventHandler(this.filter_SelectedIndexChanged);
+            // 
             // AllProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.Controls.Add(this.filter);
             this.Controls.Add(this.dataviwe);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel10);
@@ -638,5 +660,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcceptDate;
+        private System.Windows.Forms.ComboBox filter;
     }
 }

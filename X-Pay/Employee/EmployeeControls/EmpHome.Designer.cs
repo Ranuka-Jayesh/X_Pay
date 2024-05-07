@@ -34,10 +34,10 @@
             this.MonthLB1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.ProjectCount = new System.Windows.Forms.Label();
+            this.all = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.MonthLB3 = new System.Windows.Forms.Label();
+            this.upmon = new System.Windows.Forms.Label();
             this.Upcomings = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -45,23 +45,23 @@
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.onmon = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ongoing = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.inco = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.mon = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.delp = new System.Windows.Forms.Label();
+            this.dels = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataview = new System.Windows.Forms.DataGridView();
             this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,7 +119,7 @@
             this.panel6.Controls.Add(this.MonthLB1);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Controls.Add(this.ProjectCount);
+            this.panel6.Controls.Add(this.all);
             this.panel6.Controls.Add(this.label8);
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
             this.panel6.Location = new System.Drawing.Point(855, 88);
@@ -161,18 +161,18 @@
             this.pictureBox6.TabIndex = 4;
             this.pictureBox6.TabStop = false;
             // 
-            // ProjectCount
+            // all
             // 
-            this.ProjectCount.AutoSize = true;
-            this.ProjectCount.BackColor = System.Drawing.Color.Transparent;
-            this.ProjectCount.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProjectCount.ForeColor = System.Drawing.Color.White;
-            this.ProjectCount.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ProjectCount.Location = new System.Drawing.Point(4, 123);
-            this.ProjectCount.Name = "ProjectCount";
-            this.ProjectCount.Size = new System.Drawing.Size(90, 32);
-            this.ProjectCount.TabIndex = 1;
-            this.ProjectCount.Text = "2000+";
+            this.all.AutoSize = true;
+            this.all.BackColor = System.Drawing.Color.Transparent;
+            this.all.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.all.ForeColor = System.Drawing.Color.White;
+            this.all.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.all.Location = new System.Drawing.Point(4, 123);
+            this.all.Name = "all";
+            this.all.Size = new System.Drawing.Size(90, 32);
+            this.all.TabIndex = 1;
+            this.all.Text = "2000+";
             // 
             // label8
             // 
@@ -189,7 +189,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.panel5.Controls.Add(this.MonthLB3);
+            this.panel5.Controls.Add(this.upmon);
             this.panel5.Controls.Add(this.Upcomings);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.pictureBox8);
@@ -201,17 +201,17 @@
             this.panel5.Size = new System.Drawing.Size(273, 94);
             this.panel5.TabIndex = 21;
             // 
-            // MonthLB3
+            // upmon
             // 
-            this.MonthLB3.AutoSize = true;
-            this.MonthLB3.BackColor = System.Drawing.Color.Transparent;
-            this.MonthLB3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthLB3.ForeColor = System.Drawing.Color.White;
-            this.MonthLB3.Location = new System.Drawing.Point(22, 72);
-            this.MonthLB3.Name = "MonthLB3";
-            this.MonthLB3.Size = new System.Drawing.Size(32, 15);
-            this.MonthLB3.TabIndex = 19;
-            this.MonthLB3.Text = "April";
+            this.upmon.AutoSize = true;
+            this.upmon.BackColor = System.Drawing.Color.Transparent;
+            this.upmon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upmon.ForeColor = System.Drawing.Color.White;
+            this.upmon.Location = new System.Drawing.Point(22, 72);
+            this.upmon.Name = "upmon";
+            this.upmon.Size = new System.Drawing.Size(32, 15);
+            this.upmon.TabIndex = 19;
+            this.upmon.Text = "April";
             // 
             // Upcomings
             // 
@@ -286,7 +286,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.onmon);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.ongoing);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -297,17 +297,17 @@
             this.panel1.Size = new System.Drawing.Size(223, 94);
             this.panel1.TabIndex = 20;
             // 
-            // label1
+            // onmon
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "April";
+            this.onmon.AutoSize = true;
+            this.onmon.BackColor = System.Drawing.Color.Transparent;
+            this.onmon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onmon.ForeColor = System.Drawing.Color.White;
+            this.onmon.Location = new System.Drawing.Point(23, 69);
+            this.onmon.Name = "onmon";
+            this.onmon.Size = new System.Drawing.Size(32, 15);
+            this.onmon.TabIndex = 6;
+            this.onmon.Text = "April";
             // 
             // label2
             // 
@@ -349,7 +349,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.inco);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -361,17 +361,17 @@
             this.panel2.Size = new System.Drawing.Size(273, 94);
             this.panel2.TabIndex = 22;
             // 
-            // label5
+            // inco
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(22, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 15);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "April";
+            this.inco.AutoSize = true;
+            this.inco.BackColor = System.Drawing.Color.Transparent;
+            this.inco.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inco.ForeColor = System.Drawing.Color.White;
+            this.inco.Location = new System.Drawing.Point(22, 72);
+            this.inco.Name = "inco";
+            this.inco.Size = new System.Drawing.Size(32, 15);
+            this.inco.TabIndex = 19;
+            this.inco.Text = "April";
             // 
             // label6
             // 
@@ -436,28 +436,28 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.mon);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label31);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.delp);
+            this.panel3.Controls.Add(this.dels);
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
             this.panel3.Location = new System.Drawing.Point(855, 294);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(107, 178);
             this.panel3.TabIndex = 23;
             // 
-            // label15
+            // mon
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(29, 144);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(32, 15);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "April";
+            this.mon.AutoSize = true;
+            this.mon.BackColor = System.Drawing.Color.Transparent;
+            this.mon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mon.ForeColor = System.Drawing.Color.White;
+            this.mon.Location = new System.Drawing.Point(29, 144);
+            this.mon.Name = "mon";
+            this.mon.Size = new System.Drawing.Size(32, 15);
+            this.mon.TabIndex = 11;
+            this.mon.Text = "April";
             // 
             // label16
             // 
@@ -493,18 +493,18 @@
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
             // 
-            // delp
+            // dels
             // 
-            this.delp.AutoSize = true;
-            this.delp.BackColor = System.Drawing.Color.Transparent;
-            this.delp.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delp.ForeColor = System.Drawing.Color.White;
-            this.delp.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.delp.Location = new System.Drawing.Point(8, 112);
-            this.delp.Name = "delp";
-            this.delp.Size = new System.Drawing.Size(44, 32);
-            this.delp.TabIndex = 9;
-            this.delp.Text = "10";
+            this.dels.AutoSize = true;
+            this.dels.BackColor = System.Drawing.Color.Transparent;
+            this.dels.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dels.ForeColor = System.Drawing.Color.White;
+            this.dels.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.dels.Location = new System.Drawing.Point(8, 112);
+            this.dels.Name = "dels";
+            this.dels.Size = new System.Drawing.Size(44, 32);
+            this.dels.TabIndex = 9;
+            this.dels.Text = "10";
             // 
             // panel7
             // 
@@ -791,10 +791,10 @@
         private System.Windows.Forms.Label MonthLB1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label ProjectCount;
+        private System.Windows.Forms.Label all;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label MonthLB3;
+        private System.Windows.Forms.Label upmon;
         private System.Windows.Forms.Label Upcomings;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -802,23 +802,23 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label onmon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ongoing;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label inco;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label mon;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label delp;
+        private System.Windows.Forms.Label dels;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label30;
