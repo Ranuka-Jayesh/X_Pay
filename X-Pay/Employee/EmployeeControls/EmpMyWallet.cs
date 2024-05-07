@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace X_Pay.Employee.EmployeeControls
 {
     public partial class EmpMyWallet : UserControl
     {
-        public EmpMyWallet()
+        int EmployeeID;
+        public EmpMyWallet(int emp)
         {
             InitializeComponent();
+            EmployeeID = emp;   
         }
 
         private void Register_Click(object sender, EventArgs e)
@@ -43,5 +46,31 @@ namespace X_Pay.Employee.EmployeeControls
             MainPanel.Focus();
             MainPanel.Controls.Add(TotalIncome);
         }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+            upcoming();
+        }
+
+        private void upcoming()
+        {
+            // Query to get the total of Epayments for the given EmployeeID
+            string query = $"SELECT SUM(Amount) FROM Payments WHERE EmployeeID = {EmployeeID} AND Status = 'Pending';";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters in this query
+
+            db database = new db();
+            decimal? totalEpayments = database.ExecuteScalar(query, parameters);
+
+            // Formatting and displaying the total Epayments in a label
+            if (totalEpayments == null || totalEpayments == 0)
+            {
+                Upcomings.Text = "No payments";
+            }
+            else
+            {
+                Upcomings.Text = $"{totalEpayments}"; // Formats the number as currency
+            }
+        }
+
     }
 }

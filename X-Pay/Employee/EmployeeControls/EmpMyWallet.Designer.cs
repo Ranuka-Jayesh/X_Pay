@@ -32,7 +32,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.Register = new System.Windows.Forms.Button();
             this.MonthLB3 = new System.Windows.Forms.Label();
-            this.TotIncome = new System.Windows.Forms.Label();
+            this.Upcomings = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -98,18 +98,18 @@
             this.MonthLB3.TabIndex = 36;
             this.MonthLB3.Text = "April";
             // 
-            // TotIncome
+            // Upcomings
             // 
-            this.TotIncome.AutoSize = true;
-            this.TotIncome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.TotIncome.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotIncome.ForeColor = System.Drawing.Color.White;
-            this.TotIncome.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TotIncome.Location = new System.Drawing.Point(90, 125);
-            this.TotIncome.Name = "TotIncome";
-            this.TotIncome.Size = new System.Drawing.Size(112, 32);
-            this.TotIncome.TabIndex = 34;
-            this.TotIncome.Text = "100,000";
+            this.Upcomings.AutoSize = true;
+            this.Upcomings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.Upcomings.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Upcomings.ForeColor = System.Drawing.Color.White;
+            this.Upcomings.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Upcomings.Location = new System.Drawing.Point(90, 125);
+            this.Upcomings.Name = "Upcomings";
+            this.Upcomings.Size = new System.Drawing.Size(112, 32);
+            this.Upcomings.TabIndex = 34;
+            this.Upcomings.Text = "100,000";
             // 
             // label17
             // 
@@ -344,6 +344,7 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(978, 487);
             this.MainPanel.TabIndex = 64;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
             // 
             // EmpMyWallet
             // 
@@ -366,7 +367,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.MonthLB3);
-            this.Controls.Add(this.TotIncome);
+            this.Controls.Add(this.Upcomings);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
@@ -388,7 +389,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button Register;
         private System.Windows.Forms.Label MonthLB3;
-        private System.Windows.Forms.Label TotIncome;
+        private System.Windows.Forms.Label Upcomings;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

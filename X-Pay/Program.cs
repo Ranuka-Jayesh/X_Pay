@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using X_Pay.AdminControls.AdminEmployeeSubActivity;
 
 namespace X_Pay
 {
@@ -16,7 +17,7 @@ namespace X_Pay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminDash());
+            Application.Run(new EmpLogin());
         }
     }
 }

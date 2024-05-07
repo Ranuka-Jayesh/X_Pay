@@ -241,6 +241,7 @@
             this.label12.Size = new System.Drawing.Size(55, 15);
             this.label12.TabIndex = 98;
             this.label12.Text = "ProjectID";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // panel7
             // 
@@ -369,6 +370,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 3);
             this.panel1.TabIndex = 76;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // projectTypes
             // 

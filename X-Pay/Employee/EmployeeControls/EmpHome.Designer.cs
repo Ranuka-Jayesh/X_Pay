@@ -38,7 +38,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.MonthLB3 = new System.Windows.Forms.Label();
-            this.TotIncome = new System.Windows.Forms.Label();
+            this.Upcomings = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ongoing = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,20 +61,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label37 = new System.Windows.Forms.Label();
+            this.delp = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.dataview = new System.Windows.Forms.DataGridView();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Countdown = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label30 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -101,9 +93,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel7.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NexMon)).BeginInit();
@@ -200,7 +190,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
             this.panel5.Controls.Add(this.MonthLB3);
-            this.panel5.Controls.Add(this.TotIncome);
+            this.panel5.Controls.Add(this.Upcomings);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.label11);
@@ -223,18 +213,18 @@
             this.MonthLB3.TabIndex = 19;
             this.MonthLB3.Text = "April";
             // 
-            // TotIncome
+            // Upcomings
             // 
-            this.TotIncome.AutoSize = true;
-            this.TotIncome.BackColor = System.Drawing.Color.Transparent;
-            this.TotIncome.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotIncome.ForeColor = System.Drawing.Color.White;
-            this.TotIncome.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TotIncome.Location = new System.Drawing.Point(68, 35);
-            this.TotIncome.Name = "TotIncome";
-            this.TotIncome.Size = new System.Drawing.Size(112, 32);
-            this.TotIncome.TabIndex = 5;
-            this.TotIncome.Text = "100,000";
+            this.Upcomings.AutoSize = true;
+            this.Upcomings.BackColor = System.Drawing.Color.Transparent;
+            this.Upcomings.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Upcomings.ForeColor = System.Drawing.Color.White;
+            this.Upcomings.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Upcomings.Location = new System.Drawing.Point(68, 35);
+            this.Upcomings.Name = "Upcomings";
+            this.Upcomings.Size = new System.Drawing.Size(112, 32);
+            this.Upcomings.TabIndex = 5;
+            this.Upcomings.Text = "100,000";
             // 
             // label17
             // 
@@ -298,7 +288,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.ongoing);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
@@ -331,18 +321,18 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "In";
             // 
-            // label3
+            // ongoing
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Location = new System.Drawing.Point(4, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "10";
+            this.ongoing.AutoSize = true;
+            this.ongoing.BackColor = System.Drawing.Color.Transparent;
+            this.ongoing.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ongoing.ForeColor = System.Drawing.Color.White;
+            this.ongoing.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ongoing.Location = new System.Drawing.Point(4, 38);
+            this.ongoing.Name = "ongoing";
+            this.ongoing.Size = new System.Drawing.Size(44, 32);
+            this.ongoing.TabIndex = 1;
+            this.ongoing.Text = "10";
             // 
             // label4
             // 
@@ -450,7 +440,7 @@
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label31);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.label37);
+            this.panel3.Controls.Add(this.delp);
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
             this.panel3.Location = new System.Drawing.Point(855, 294);
             this.panel3.Name = "panel3";
@@ -503,25 +493,23 @@
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
             // 
-            // label37
+            // delp
             // 
-            this.label37.AutoSize = true;
-            this.label37.BackColor = System.Drawing.Color.Transparent;
-            this.label37.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label37.Location = new System.Drawing.Point(8, 112);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(44, 32);
-            this.label37.TabIndex = 9;
-            this.label37.Text = "10";
+            this.delp.AutoSize = true;
+            this.delp.BackColor = System.Drawing.Color.Transparent;
+            this.delp.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delp.ForeColor = System.Drawing.Color.White;
+            this.delp.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.delp.Location = new System.Drawing.Point(8, 112);
+            this.delp.Name = "delp";
+            this.delp.Size = new System.Drawing.Size(44, 32);
+            this.delp.TabIndex = 9;
+            this.delp.Text = "10";
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.panel7.Controls.Add(this.panel10);
-            this.panel7.Controls.Add(this.panel9);
-            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.dataview);
             this.panel7.Controls.Add(this.pictureBox9);
             this.panel7.Controls.Add(this.label30);
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
@@ -529,147 +517,36 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(472, 255);
             this.panel7.TabIndex = 24;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
-            // panel10
+            // dataview
             // 
-            this.panel10.BackColor = System.Drawing.SystemColors.Control;
-            this.panel10.Controls.Add(this.label27);
-            this.panel10.Controls.Add(this.label24);
-            this.panel10.Controls.Add(this.label26);
-            this.panel10.Location = new System.Drawing.Point(10, 143);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(451, 25);
-            this.panel10.TabIndex = 12;
+            this.dataview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.dataview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProjectID,
+            this.ProjectType,
+            this.Countdown});
+            this.dataview.Location = new System.Drawing.Point(12, 83);
+            this.dataview.Name = "dataview";
+            this.dataview.Size = new System.Drawing.Size(449, 153);
+            this.dataview.TabIndex = 8;
             // 
-            // label27
+            // ProjectID
             // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.Transparent;
-            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.Crimson;
-            this.label27.Location = new System.Drawing.Point(368, 3);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(83, 16);
-            this.label27.TabIndex = 10;
-            this.label27.Text = "0 hrs 30 min";
+            this.ProjectID.HeaderText = "ProjectID";
+            this.ProjectID.Name = "ProjectID";
             // 
-            // label24
+            // ProjectType
             // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.label24.Location = new System.Drawing.Point(128, 3);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(64, 17);
-            this.label24.TabIndex = 9;
-            this.label24.Text = "MobApp";
+            this.ProjectType.HeaderText = "Project Type";
+            this.ProjectType.Name = "ProjectType";
             // 
-            // label26
+            // Countdown
             // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.label26.Location = new System.Drawing.Point(7, 3);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(43, 17);
-            this.label26.TabIndex = 7;
-            this.label26.Text = "PJ020";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Control;
-            this.panel9.Controls.Add(this.label20);
-            this.panel9.Controls.Add(this.label21);
-            this.panel9.Controls.Add(this.label23);
-            this.panel9.Location = new System.Drawing.Point(10, 112);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(451, 25);
-            this.panel9.TabIndex = 11;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label20.Location = new System.Drawing.Point(368, 3);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 16);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "1 hrs 30 min";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.label21.Location = new System.Drawing.Point(128, 3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(68, 17);
-            this.label21.TabIndex = 9;
-            this.label21.Text = "Web Dev";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.label23.Location = new System.Drawing.Point(7, 3);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(43, 17);
-            this.label23.TabIndex = 7;
-            this.label23.Text = "PJ011";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(75)))), ((int)(((byte)(95)))));
-            this.panel8.Controls.Add(this.label19);
-            this.panel8.Controls.Add(this.label18);
-            this.panel8.Controls.Add(this.label29);
-            this.panel8.Location = new System.Drawing.Point(10, 81);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(451, 25);
-            this.panel8.TabIndex = 8;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(368, 3);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 16);
-            this.label19.TabIndex = 10;
-            this.label19.Text = "Remaining";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(128, 3);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 16);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Category";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(7, 3);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(74, 16);
-            this.label29.TabIndex = 7;
-            this.label29.Text = "Projects ID";
+            this.Countdown.HeaderText = "Countdown";
+            this.Countdown.Name = "Countdown";
             // 
             // pictureBox9
             // 
@@ -896,12 +773,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -923,7 +795,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label MonthLB3;
-        private System.Windows.Forms.Label TotIncome;
+        private System.Windows.Forms.Label Upcomings;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label11;
@@ -932,7 +804,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ongoing;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
@@ -946,20 +818,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label delp;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel11;
@@ -975,5 +835,9 @@
         private System.Windows.Forms.Label monthlable;
         private System.Windows.Forms.FlowLayoutPanel daycontainer;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.DataGridView dataview;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Countdown;
     }
 }

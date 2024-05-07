@@ -31,9 +31,6 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
             {
                 dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"],reader["SubjectType"], reader["contact"], reader["Deadline"], reader["Price"], reader["Status"] , reader["AcceptDate"]);
             }
-
-
-
             LoadCategoriesIntoComboBox();
             LoadSubjectsIntoComboBox();
         }
@@ -157,20 +154,34 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
 
             try
             {
+                if (status.Text == "Pending")
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to update the status of this project to Pending?\nThis will remove the assigned person from the project.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
                 string query = "UPDATE Projects SET " +
                 "ClientName = '" + (CName.Text) + "', " +
                 "Organization = '" + (Orgz.Text) + "', " +
                 "ProjectType = '" + (projectTypes.Text) + "', " +
                 "SubjectType = '" + (subjectType.Text) + "', " +
-                "Price = " + (Tot.Text) + ", " + // Assuming Price is a numeric field
+                "Price = " + (Tot.Text) + ", " +
                 "Deadline = '" + Convert.ToDateTime(DDline.Text).ToString("yyyy-MM-dd HH:mm:ss") + "', " +
                 "AdditionalNotes = '" + (note.Text) + "', " +
                 "contact = '" + (Contacts.Text) + "', " +
                 "Status = '" + (status.Text) + "' " +
-                "WHERE ProjectID = '"+ PID.Text + "'";  // You need to specify an identifier for which record to update
-
+                "WHERE ProjectID = '"+ PID.Text + "'"; 
 
                 db DB = new db();
+                if (status.Text == "Pending")
+                {
+                    string deleteQuery = "DELETE FROM AssignProject WHERE ProjectID = '" + PID.Text + "'";
+                    DB.Execute(deleteQuery);
+                }
+
                 // Execute the update query
                 DB.Execute(query);
                 // Show success message box
@@ -191,40 +202,54 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
-
-
         }
 
         private void label13_Click(object sender, EventArgs e)
         {
-            // Check if the employee ID field is empty
+            // Check if the Project ID field is empty
             if (string.IsNullOrWhiteSpace(PID.Text))
             {
                 MessageBox.Show("Please enter the Project ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Exit the method without executing the update query
+                return;
             }
 
-
-            // Construct the SQL query for deleting the record
-            string Query = "DELETE FROM Projects WHERE ProjectID = " + PID.Text;
-
-            // Create a new instance of the database access class
-            db DB = new db();
-
-            // Execute the delete query
-            DB.Execute(Query);
-            MessageBox.Show("Data Delete successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            ClearForm();
-            // Select data to datagridview and display
-            var reader = new db().Select("SELECT * FROM Projects");
-            dataviwe.Rows.Clear();
-            while (reader.Read())
+            try
             {
-                dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"], reader["SubjectType"], reader["contact"], reader["Deadline"], reader["Price"], reader["Status"], reader["AcceptDate"]);
-            }
+                // Prompt the user for confirmation before deleting the project
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this project?\nDeleting this project will also remove the assignment.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Construct the SQL query for deleting the record
+                    string Query = "DELETE FROM Projects WHERE ProjectID = " + PID.Text;
+                    string deleteQuery = "DELETE FROM AssignProject WHERE ProjectID = '" + PID.Text + "'";
+                    
 
+                    // Create a new instance of the database access class
+                    db DB = new db();
+
+                    // Execute the delete query
+                    DB.Execute(Query);
+                    DB.Execute(deleteQuery);
+
+                    // Show success message box
+                    MessageBox.Show("Data Delete successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ClearForm();
+
+                    // Select data to datagridview and display
+                    var reader = new db().Select("SELECT * FROM Projects");
+                    dataviwe.Rows.Clear();
+                    while (reader.Read())
+                    {
+                        dataviwe.Rows.Add(reader["ProjectID"], reader["ClientName"], reader["Organization"], reader["ProjectType"], reader["SubjectType"], reader["contact"], reader["Deadline"], reader["Price"], reader["Status"], reader["AcceptDate"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log exception details here, e.g., to a file or a database
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -260,6 +285,16 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
             {
                 MessageBox.Show("Failed to open file path: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

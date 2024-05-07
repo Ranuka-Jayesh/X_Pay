@@ -168,7 +168,7 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 string organization = orgname.Text;
                 string project = projectType.Text;
                 string subject = subjectType.Text;
-                string status = "Running";
+                string status = "Pending";
                 int prices;
                 if (!int.TryParse(Price.Text, out prices))
                 {
@@ -229,8 +229,7 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
+    
         private void CreateAndSaveReceipt(string filePath, string client, string organization, string project, int price, DateTime deadline, DateTime acceptionDate)
         {
             using (var document = new iTextSharp.text.Document())
@@ -249,7 +248,6 @@ namespace X_Pay.AdminControls.AdminProjectsSubActivity
                 document.Close();
             }
         }
-
 
         private void ClearForm()
         {

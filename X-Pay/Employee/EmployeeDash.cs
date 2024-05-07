@@ -41,7 +41,7 @@ namespace X_Pay.Employee
         }
         private void EmployeeDash_Load(object sender, EventArgs e)
         {
-            EmpHome EHM = new EmpHome();
+            EmpHome EHM = new EmpHome(EmployeeID);
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
@@ -100,7 +100,7 @@ namespace X_Pay.Employee
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            EmpHome EHM = new EmpHome();
+            EmpHome EHM = new EmpHome(EmployeeID);
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
@@ -109,7 +109,7 @@ namespace X_Pay.Employee
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmployeeControls.EmpMyTask  myTask = new EmployeeControls.EmpMyTask();
+            EmployeeControls.EmpMyTask  myTask = new EmployeeControls.EmpMyTask(EmployeeID);
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
@@ -127,7 +127,7 @@ namespace X_Pay.Employee
 
         private void button3_Click(object sender, EventArgs e)
         {
-            EmpMyWallet wt = new EmpMyWallet();
+            EmpMyWallet wt = new EmpMyWallet(EmployeeID);
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
