@@ -55,7 +55,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                     File.Copy(selectedFilePath, destinationFilePath, true);
                     // Update the stored file path to the new path
                     selectedFilePath = destinationFilePath;
-
+                    dp.Image = Image.FromFile(destinationFilePath);
                     // Optionally, show a message box (comment out if not needed)
                     MessageBox.Show("File selected and saved to: " + destinationFilePath, "File Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -176,11 +176,6 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             if (!IsValidString(education))
             {
                 MessageBox.Show("Education must contain only letters and spaces.", "Invalid Education", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!IsValidString(skills))
-            {
-                MessageBox.Show("Skills must contain only letters and spaces.", "Invalid Skills", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -34,7 +34,7 @@ namespace X_Pay.AdminControls
             bl4 .Text = endDate.ToString("MMMM");
             // SQL query to count only the employees with a status of 'Running'
             string query = "SELECT COUNT(*) FROM Projects WHERE Status = 'Running'";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+            SqlParameter[] parameters = new SqlParameter[] { };
 
             db database = new db();
             int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
@@ -137,7 +137,7 @@ namespace X_Pay.AdminControls
             DateTime startDate = endDate.AddMonths(-1);
             MonthLB3.Text = endDate.ToString("MMMM");
             // Updated query with parameter for EmployeeID
-            string query = $"SELECT ISNULL(SUM(Amount), 0) FROM Payments";
+            string query = $"SELECT ISNULL(SUM(Price), 0) FROM Projects";
 
             db database = new db();
             // Execute the scalar query

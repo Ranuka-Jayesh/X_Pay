@@ -31,19 +31,16 @@ namespace X_Pay.AdminControls
         {
             
         }
-
         private void chart1_Click(object sender, EventArgs e)
         {
             
         }
-
-
         private void getFinancialTotals()
         {
             // SQL query to sum the Price column from Projects
-            string incomeQuery = "SELECT SUM(Price) FROM Projects";
+            string incomeQuery = "SELECT ISNULL(SUM(Price),0) FROM Projects";
             // SQL query to sum the Amount column from Payments
-            string paymentsQuery = "SELECT SUM(Amount) FROM Payments";
+            string paymentsQuery = "SELECT ISNULL(SUM(Amount),0) FROM Payments";
 
             SqlParameter[] parameters = new SqlParameter[] { };
             db database = new db();
@@ -72,10 +69,8 @@ namespace X_Pay.AdminControls
             }
 
         }
-
         private void chartloading()
         {
-            // First, clear existing series and add a new one for the pie chart
             chart1.Series.Clear();
             var series = chart1.Series.Add("FinancialData");
             series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -84,7 +79,7 @@ namespace X_Pay.AdminControls
             getFinancialTotals();
 
             // Add data points to the series
-            series.Points.AddXY("Total Income", Profit);
+            series.Points.AddXY("Total Profit", Profit);
             series.Points.AddXY("Total Payments", totalPayments);
 
             // Displaying data labels with values
@@ -93,7 +88,6 @@ namespace X_Pay.AdminControls
             // Refresh the chart to update visuals
             chart1.Invalidate();
         }
-
         private void chart2_Click(object sender, EventArgs e)
         {
             

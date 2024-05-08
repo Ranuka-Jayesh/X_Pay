@@ -29,9 +29,6 @@ namespace X_Pay
             path.AddArc(0, this.Height - radius * 2, radius * 2, radius * 2, 90, 90);
             path.CloseFigure();
             this.Region = new Region(path);
-
-            
-
         }
 
         private void closeico_Click(object sender, EventArgs e)

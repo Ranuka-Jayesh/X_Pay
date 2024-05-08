@@ -221,7 +221,7 @@
             this.upcome.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upcome.ForeColor = System.Drawing.Color.Crimson;
             this.upcome.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.upcome.Location = new System.Drawing.Point(85, 35);
+            this.upcome.Location = new System.Drawing.Point(63, 35);
             this.upcome.Name = "upcome";
             this.upcome.Size = new System.Drawing.Size(97, 32);
             this.upcome.TabIndex = 5;
