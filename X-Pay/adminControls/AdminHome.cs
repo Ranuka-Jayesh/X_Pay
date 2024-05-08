@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot.TickGenerators.TimeUnits;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +21,10 @@ namespace X_Pay.AdminControls
             displayDays();
             employeecounts();
             projectcount();
-            totIncome();
             ongoings();
             Delivered();
+            incomes();
+
         }
 
         private void ongoings()
@@ -129,25 +131,20 @@ namespace X_Pay.AdminControls
             }
         }
 
-        private void totIncome()
+        private void incomes()
         {
-            // SQL query to sum the Price column
-            string query = "SELECT SUM(Price) FROM Projects";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed for a simple SUM query
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            MonthLB3.Text = endDate.ToString("MMMM");
+            // Updated query with parameter for EmployeeID
+            string query = $"SELECT ISNULL(SUM(Amount), 0) FROM Payments";
 
             db database = new db();
-            object result = database.ExecuteScalar(query, parameters);  // ExecuteScalar should return the first column of the first row in the result set
+            // Execute the scalar query
+            int totalAmount = Convert.ToInt32(database.ExecuteScalar(query, new SqlParameter[] { }));
 
-            // Check for DB null values
-            if (result == DBNull.Value || result == null)
-            {
-                TotIncome.Text = "00";
-            }
-            else
-            {
-                decimal totalIncome = Convert.ToDecimal(result); // Convert the result to decimal
-                TotIncome.Text = totalIncome.ToString("N2"); // Format the number as needed, e.g., "N2" for two decimal places
-            }
+            // Update the label with the total amount formatted as currency
+            TotIncome.Text = totalAmount.ToString();
         }
 
         private void displayDays()
