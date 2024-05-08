@@ -30,16 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmpMyTask));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.mon = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.onmon = new System.Windows.Forms.Label();
             this.dataview = new System.Windows.Forms.DataGridView();
             this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Countdown = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label30 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.delp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -54,12 +53,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Register = new System.Windows.Forms.Button();
-            this.onmon = new System.Windows.Forms.Label();
-            this.mon = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,10 +68,6 @@
             this.MainPanel.Controls.Add(this.dataview);
             this.MainPanel.Controls.Add(this.label30);
             this.MainPanel.Controls.Add(this.label13);
-            this.MainPanel.Controls.Add(this.label8);
-            this.MainPanel.Controls.Add(this.label10);
-            this.MainPanel.Controls.Add(this.pictureBox4);
-            this.MainPanel.Controls.Add(this.button3);
             this.MainPanel.Controls.Add(this.delp);
             this.MainPanel.Controls.Add(this.label7);
             this.MainPanel.Controls.Add(this.pictureBox3);
@@ -97,6 +88,42 @@
             this.MainPanel.Size = new System.Drawing.Size(978, 487);
             this.MainPanel.TabIndex = 0;
             this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
+            // 
+            // mon
+            // 
+            this.mon.AutoSize = true;
+            this.mon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.mon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mon.ForeColor = System.Drawing.Color.White;
+            this.mon.Location = new System.Drawing.Point(537, 153);
+            this.mon.Name = "mon";
+            this.mon.Size = new System.Drawing.Size(24, 15);
+            this.mon.TabIndex = 47;
+            this.mon.Text = "For";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(512, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 15);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "For";
+            // 
+            // onmon
+            // 
+            this.onmon.AutoSize = true;
+            this.onmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.onmon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.onmon.ForeColor = System.Drawing.Color.White;
+            this.onmon.Location = new System.Drawing.Point(297, 153);
+            this.onmon.Name = "onmon";
+            this.onmon.Size = new System.Drawing.Size(24, 15);
+            this.onmon.TabIndex = 45;
+            this.onmon.Text = "For";
             // 
             // dataview
             // 
@@ -152,58 +179,6 @@
             this.label13.Size = new System.Drawing.Size(304, 32);
             this.label13.TabIndex = 40;
             this.label13.Text = "DASHBOARD / MyTask";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label8.Location = new System.Drawing.Point(748, 131);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 32);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "00";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(751, 99);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 32);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Return\r\nProjects";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(877, 97);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 37;
-            this.pictureBox4.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(744, 90);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(212, 84);
-            this.button3.TabIndex = 36;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // delp
             // 
@@ -385,42 +360,6 @@
             this.Register.UseVisualStyleBackColor = false;
             this.Register.Click += new System.EventHandler(this.Register_Click);
             // 
-            // onmon
-            // 
-            this.onmon.AutoSize = true;
-            this.onmon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.onmon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.onmon.ForeColor = System.Drawing.Color.White;
-            this.onmon.Location = new System.Drawing.Point(297, 153);
-            this.onmon.Name = "onmon";
-            this.onmon.Size = new System.Drawing.Size(24, 15);
-            this.onmon.TabIndex = 45;
-            this.onmon.Text = "For";
-            // 
-            // mon
-            // 
-            this.mon.AutoSize = true;
-            this.mon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.mon.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mon.ForeColor = System.Drawing.Color.White;
-            this.mon.Location = new System.Drawing.Point(537, 153);
-            this.mon.Name = "mon";
-            this.mon.Size = new System.Drawing.Size(24, 15);
-            this.mon.TabIndex = 47;
-            this.mon.Text = "For";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(512, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 15);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "For";
-            // 
             // EmpMyTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,7 +371,6 @@
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -457,10 +395,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.DataGridView dataview;

@@ -30,11 +30,11 @@ namespace X_Pay.Employee.EmployeeControls.MyTaskSubActivities
         {
             LoadProjectID();
 
-            var reader = new db().Select("SELECT * FROM ProjectDelivery");
+            var reader = new db().Select($"SELECT * FROM ProjectDelivery WHERE EmployeeID = {EmployeeID}");
             dataviwe.Rows.Clear();
             while (reader.Read())
             {
-                dataviwe.Rows.Add(reader["Id"], reader["ProjectID"], reader["EmployeeID"], reader["FilePath"], reader["DeliveredDate"], reader["Status"]);
+                dataviwe.Rows.Add(reader["Id"], reader["ProjectID"], reader["EmployeeID"], reader["FilePath"], reader["Status"], reader["DeliveredDate"]);
             }
         }
 
@@ -128,11 +128,11 @@ namespace X_Pay.Employee.EmployeeControls.MyTaskSubActivities
 
                 LoadProjectID();
 
-                var reader = new db().Select("SELECT * FROM ProjectDelivery");
+                var reader = new db().Select($"SELECT * FROM ProjectDelivery WHERE EmployeeID = {EmployeeID}");
                 dataviwe.Rows.Clear();
                 while (reader.Read())
                 {
-                    dataviwe.Rows.Add(reader["Id"], reader["ProjectID"], reader["EmployeeID"], reader["FilePath"], reader["DeliveredDate"], reader["Status"]);
+                    dataviwe.Rows.Add(reader["Id"], reader["ProjectID"], reader["EmployeeID"], reader["FilePath"], reader["Status"], reader["DeliveredDate"]);
                 }
 
             }

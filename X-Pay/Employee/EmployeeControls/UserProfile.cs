@@ -86,46 +86,101 @@ namespace X_Pay.Employee.EmployeeControls
         private void UserProfile_Load(object sender, EventArgs e)
         {
             LoadEmployeeDetails();
+            tot();
+            allp();
         }
 
         public void LoadEmployeeDetails()
         {
-            string query = $"SELECT FirstName, LastName, Email, Address, Position, Education, Skills, DateOfBirth, RegisterDate , Contact , ProfilePic FROM Employee WHERE EmployeeID = {EmployeeID}";
+            string query = $"SELECT FirstName, LastName, Email, Address, Position, Education, Skills, DateOfBirth, RegisterDate, Contact, ProfilePic FROM Employee WHERE EmployeeID = {EmployeeID}";
             db database = new db();
+            using (SqlDataReader reader = database.Select(query))
             {
-                using (SqlDataReader reader = database.Select(query))
+                if (reader != null && reader.Read())
                 {
-                    if (reader != null && reader.Read())
+                    EmpName.Text = $"{reader["FirstName"]} {reader["LastName"]}";
+                    email.Text = reader["Email"].ToString();
+                    addrss.Text = reader["Address"].ToString();
+                    position.Text = reader["Position"].ToString();
+                    educations.Text = reader["Education"].ToString();
+                    skills.Text = reader["Skills"].ToString();
+                    RegisteredDate.Text = Convert.ToDateTime(reader["RegisterDate"]).ToString("yyyy-MM-dd");
+                    contact.Text = reader["Contact"].ToString();
+                    DateTime birthDate = Convert.ToDateTime(reader["DateOfBirth"]);
+                    age.Text = CalculateAge(birthDate).ToString();
+
+                    // Load profile picture from a path
+                    if (reader["ProfilePic"] != DBNull.Value)
                     {
-                        EmpName.Text = $"{reader["FirstName"]} {reader["LastName"]}";
-                        email.Text = reader["Email"].ToString();
-                        addrss.Text = reader["Address"].ToString();
-                        position.Text = reader["Position"].ToString();
-                        educations.Text = reader["Education"].ToString();
-                        skills.Text = reader["Skills"].ToString();
-                        RegisteredDate.Text = Convert.ToDateTime(reader["RegisterDate"]).ToString("yyyy-MM-dd");
-                        contact.Text = reader["Contact"].ToString();
-
-                        DateTime birthDate = Convert.ToDateTime(reader["DateOfBirth"]);
-                        age.Text = CalculateAge(birthDate).ToString();
-
-
-                        if (reader["ProfilePic"] != DBNull.Value)
-                        {
-                            string imagePath = reader["ProfilePic"].ToString();
-                            if (File.Exists(imagePath))
-                            {
-                                using (var img = Image.FromFile(imagePath))
-                                {
-                                    profilepic.Image = new Bitmap(img, new Size(150, 150));
-                                }
-                            }
-                        }
+                        string imagePath = reader["ProfilePic"].ToString();
+                        profilepic.Image = Image.FromFile(imagePath);
                     }
-                    reader.Close();
+                    else
+                    {
+                        profilepic.Image = null;
+                    }
                 }
+                reader.Close();
             }
         }
+        private void tot()
+        {
+
+            // Updated query with parameter for EmployeeID
+            string query = $"SELECT ISNULL(SUM(Amount), 0) FROM Payments WHERE Status = 'Paid' AND EmployeeID = {EmployeeID}";
+
+            db database = new db();
+            // Execute the scalar query
+            int totalAmount = Convert.ToInt32(database.ExecuteScalar(query, new SqlParameter[] { }));
+
+            // Update the label with the total amount formatted as currency
+            totinco.Text = totalAmount.ToString();
+        }
+        private void allp()
+        {
+            string query = $"SELECT COUNT(*) FROM ProjectDelivery WHERE EmployeeID = {EmployeeID};";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
+
+            db database = new db();
+            int count = database.ExecuteScalar(query, parameters); // Assume this method correctly executes the query and returns the result
+
+            // Format and display the count based on its value
+            if (count == 0)
+            {
+                all.Text = "00";
+            }
+            else if (count < 10)
+            {
+                all.Text = "0" + count.ToString();
+            }
+            else
+            {
+                all.Text = count.ToString();
+            }
+
+            if (count <= 5)
+            {
+                rt.Text = "1.0✨";
+            }
+            else if(count <= 10)
+            {
+                rt.Text = "2.0✨";
+            }
+            else if(count <= 15)
+            {
+                rt.Text = "3.0✨";
+            }
+            else if (count <= 20)
+            {
+                rt.Text = "4.0✨";
+            }
+            else
+            {
+                rt.Text = "5.0✨";
+            }
+
+        }
+
 
         private int CalculateAge(DateTime dateOfBirth)
         {

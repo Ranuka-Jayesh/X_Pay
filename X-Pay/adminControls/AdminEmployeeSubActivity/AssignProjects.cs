@@ -185,7 +185,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 // Check if Epayment is not null and greater than 100
                 if (string.IsNullOrWhiteSpace(epaymentValue) || !decimal.TryParse(epaymentValue, out decimal epayment) || epayment <= 100)
                 {
-                    MessageBox.Show("Employee Payment Should Be More than Rs.100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Employee Payment Should Be More than Rs.100 and less than Project Price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -214,6 +214,11 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             {
                 MessageBox.Show("Failed to insert data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SpecialNote_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

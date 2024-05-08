@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -27,7 +28,34 @@ namespace X_Pay.Employee
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddEllipse(0, 0, profilepic.Width, profilepic.Height);
             profilepic.Region = new Region(path);
+            LoadEmployeeDetails(EmployeeID);
         }
+        public void LoadEmployeeDetails(int employeeID)
+        {
+            // Fetch employee details including profile picture from the database based on employeeID
+            // Populate UI controls with employee details
+
+            // Load profile picture
+            string query = $"SELECT ProfilePic FROM Employee WHERE EmployeeID = {employeeID}";
+            db database = new db();
+            using (SqlDataReader reader = database.Select(query))
+            {
+                if (reader != null && reader.Read())
+                {
+                    if (reader["ProfilePic"] != DBNull.Value)
+                    {
+                        string imagePath = reader["ProfilePic"].ToString();
+                        profilepic.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        profilepic.Image = null; // Clear the picture box or set to default image if no image is available
+                    }
+                }
+                reader.Close();
+            }
+        }
+
         private void ApplyRoundedCorners()
         {
             int radius = 10;
@@ -45,9 +73,7 @@ namespace X_Pay.Employee
             MainPanel.Controls.Clear();
             MainPanel.BringToFront();
             MainPanel.Focus();
-            MainPanel.Controls.Add(EHM);
-
-            
+            MainPanel.Controls.Add(EHM);   
         }
 
         private void Mouse_Down(object sender, MouseEventArgs e)

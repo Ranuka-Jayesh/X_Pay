@@ -10,7 +10,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using X_Pay.Employee.EmployeeControls.MyWalletSubActivities;
+
 
 namespace X_Pay.AdminControls.AdminEmployeeSubActivity
 {
@@ -26,6 +26,18 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
         {
             LoadEmployeeID();
             LoadPayIDS();
+            Payment();
+        }
+
+        private void Payment()
+        {
+            // Select data to datagridview and display
+            var reader = new db().Select("SELECT * FROM Payments");
+            dataview.Rows.Clear();
+            while (reader.Read())
+            {
+                dataview.Rows.Add(reader["PaymentId"], reader["EmployeeID"], reader["ProjectId"], reader["Amount"], reader["PaymentDate"], reader["Status"], reader["Receipt"]);
+            }
         }
         private void LoadEmployeeID()
         {
@@ -54,19 +66,13 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
         private void LoadPayIDS()
         {
             db db = new db();
-            using (SqlDataReader reader = db.Select($"SELECT PaymentId FROM Payments WHERE EmployeeID = '{employeeID.Text}'"))
+            using (SqlDataReader reader = db.Select("SELECT PaymentId FROM Payments WHERE EmployeeID = '"+ employeeID.Text + "' AND Status = 'Pending'"))
+
             {
-                Console.WriteLine($"Query: SELECT PaymentId FROM Payments WHERE EmployeeID = '{employeeID.Text}'"); // Log the query
-
                 DataTable dt = new DataTable();
+                dt.Load(reader); 
                 payid.DisplayMember = "PaymentId";
-                dt.Load(reader);
                 payid.DataSource = dt;
-
-                if (dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("No data found for Employee ID: " + employeeID.Text);  // Alert if no data
-                }
             }
         }
 
@@ -106,6 +112,7 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             }
 
             LoadPayIDS();
+            LoadEmployeeID();
         }
 
         private void payid_SelectedIndexChanged(object sender, EventArgs e)
@@ -193,11 +200,13 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                     MessageBox.Show("Please select a file first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string paymentId = PID.Text;
+                string paymentId = payid.Text;
                 DateTime today = DateTime.Now; 
                                                
-                string query = "UPDATE Payments SET Receipt = '" + selectedFilePath + "', Status = 'Paid', PaymentDate = '" + today + "' WHERE PaymentId = '" + paymentId + "'"; 
-
+                string query = "UPDATE Payments SET Receipt = '" + selectedFilePath + "', Status = 'Paid', PaymentDate = '" + today + "' WHERE PaymentId = '" + paymentId + "'";
+                LoadPayIDS();
+                LoadEmployeeID();
+                label3.Text = "";
                 db DB = new db();
                 DB.Execute(query);
 
@@ -209,5 +218,70 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
             }
         }
 
+        private void dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string fl = filter.Text;  // Get the filter text
+            string query;
+            if (fl == "All")
+            {
+                query = "SELECT * FROM Payments"; 
+            }
+            else
+            {
+                query = "SELECT * FROM Payments WHERE Status = '" + fl + "'";
+            }
+
+            var reader = new db().Select(query); 
+            dataview.Rows.Clear(); 
+
+            while (reader.Read())
+            {
+                dataview.Rows.Add(reader["PaymentId"], reader["EmployeeID"], reader["ProjectId"], reader["Amount"], reader["PaymentDate"], reader["Status"], reader["Receipt"]);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text;
+
+            if (string.IsNullOrEmpty(searchText))
+            {             
+                Payment();
+            }
+            else
+            {
+                string query = $"SELECT * FROM Payments WHERE EmployeeID LIKE '%{searchText}%' OR PaymentId LIKE '%{searchText}%'";
+
+                try
+                {
+                    var reader = new db().Select(query);
+                    dataview.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        dataview.Rows.Add(
+                            reader["PaymentId"].ToString(),
+                            reader["EmployeeID"].ToString(),
+                            reader["ProjectId"].ToString(),
+                            reader["Amount"].ToString(),
+                            Convert.ToDateTime(reader["PaymentDate"]),
+                            reader["Status"].ToString(),
+                            reader["Receipt"].ToString()
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error searching for payments: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
     }
+
 }

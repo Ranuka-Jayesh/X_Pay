@@ -27,6 +27,9 @@ namespace X_Pay.AdminControls
 
         private void ongoings()
         {
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            bl4 .Text = endDate.ToString("MMMM");
             // SQL query to count only the employees with a status of 'Running'
             string query = "SELECT COUNT(*) FROM Projects WHERE Status = 'Running'";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed since the value is hardcoded
@@ -51,7 +54,9 @@ namespace X_Pay.AdminControls
 
         private void Delivered()
         {
-
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            lb6.Text = endDate.ToString("MMMM");
             string query = "SELECT COUNT(*) FROM Projects WHERE Status = 'Delivered'";
             SqlParameter[] parameters = new SqlParameter[] { }; 
 
@@ -74,6 +79,10 @@ namespace X_Pay.AdminControls
 
         private void employeecounts()
         {
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            MonthLB2.Text = endDate.ToString("MMMM");
+
             string query = "SELECT COUNT(*) FROM Employee";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters for a simple count
 
@@ -96,6 +105,10 @@ namespace X_Pay.AdminControls
 
         private void projectcount()
         {
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            MonthLB1.Text = endDate.ToString("MMMM");
+
             string query = "SELECT COUNT(*) FROM Projects";
             SqlParameter[] parameters = new SqlParameter[] { }; // No parameters for a simple count
 

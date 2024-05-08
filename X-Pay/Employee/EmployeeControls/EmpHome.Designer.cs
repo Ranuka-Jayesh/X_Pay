@@ -50,8 +50,8 @@
             this.ongoing = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.monthss = new System.Windows.Forms.Label();
             this.inco = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -349,8 +349,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(156)))), ((int)(((byte)(142)))));
+            this.panel2.Controls.Add(this.monthss);
             this.panel2.Controls.Add(this.inco);
-            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label10);
@@ -361,30 +361,30 @@
             this.panel2.Size = new System.Drawing.Size(273, 94);
             this.panel2.TabIndex = 22;
             // 
+            // monthss
+            // 
+            this.monthss.AutoSize = true;
+            this.monthss.BackColor = System.Drawing.Color.Transparent;
+            this.monthss.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthss.ForeColor = System.Drawing.Color.White;
+            this.monthss.Location = new System.Drawing.Point(22, 72);
+            this.monthss.Name = "monthss";
+            this.monthss.Size = new System.Drawing.Size(32, 15);
+            this.monthss.TabIndex = 19;
+            this.monthss.Text = "April";
+            // 
             // inco
             // 
             this.inco.AutoSize = true;
             this.inco.BackColor = System.Drawing.Color.Transparent;
-            this.inco.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inco.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inco.ForeColor = System.Drawing.Color.White;
-            this.inco.Location = new System.Drawing.Point(22, 72);
+            this.inco.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.inco.Location = new System.Drawing.Point(68, 35);
             this.inco.Name = "inco";
-            this.inco.Size = new System.Drawing.Size(32, 15);
-            this.inco.TabIndex = 19;
-            this.inco.Text = "April";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label6.Location = new System.Drawing.Point(68, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 32);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "100,000";
+            this.inco.Size = new System.Drawing.Size(112, 32);
+            this.inco.TabIndex = 5;
+            this.inco.Text = "100,000";
             // 
             // label9
             // 
@@ -807,8 +807,8 @@
         private System.Windows.Forms.Label ongoing;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label monthss;
         private System.Windows.Forms.Label inco;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;

@@ -39,15 +39,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.TotIncome = new System.Windows.Forms.Label();
+            this.upcome = new System.Windows.Forms.Label();
             this.MonthLB3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lm = new System.Windows.Forms.Label();
+            this.completedPaymentsText = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,10 +59,8 @@
             this.notification = new System.Windows.Forms.TextBox();
             this.makepayment = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.busy = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.AllEmp = new System.Windows.Forms.Label();
@@ -85,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -217,18 +214,18 @@
             this.label17.TabIndex = 18;
             this.label17.Text = "In";
             // 
-            // TotIncome
+            // upcome
             // 
-            this.TotIncome.AutoSize = true;
-            this.TotIncome.BackColor = System.Drawing.Color.Transparent;
-            this.TotIncome.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotIncome.ForeColor = System.Drawing.Color.Crimson;
-            this.TotIncome.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TotIncome.Location = new System.Drawing.Point(85, 35);
-            this.TotIncome.Name = "TotIncome";
-            this.TotIncome.Size = new System.Drawing.Size(97, 32);
-            this.TotIncome.TabIndex = 5;
-            this.TotIncome.Text = "58,500";
+            this.upcome.AutoSize = true;
+            this.upcome.BackColor = System.Drawing.Color.Transparent;
+            this.upcome.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upcome.ForeColor = System.Drawing.Color.Crimson;
+            this.upcome.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.upcome.Location = new System.Drawing.Point(85, 35);
+            this.upcome.Name = "upcome";
+            this.upcome.Size = new System.Drawing.Size(97, 32);
+            this.upcome.TabIndex = 5;
+            this.upcome.Text = "58,500";
             // 
             // MonthLB3
             // 
@@ -246,7 +243,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
             this.panel5.Controls.Add(this.MonthLB3);
-            this.panel5.Controls.Add(this.TotIncome);
+            this.panel5.Controls.Add(this.upcome);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.label11);
@@ -296,8 +293,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lm);
+            this.panel1.Controls.Add(this.completedPaymentsText);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label4);
@@ -309,30 +306,30 @@
             this.panel1.Size = new System.Drawing.Size(273, 94);
             this.panel1.TabIndex = 45;
             // 
-            // label1
+            // lm
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 15);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "April";
+            this.lm.AutoSize = true;
+            this.lm.BackColor = System.Drawing.Color.Transparent;
+            this.lm.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lm.ForeColor = System.Drawing.Color.White;
+            this.lm.Location = new System.Drawing.Point(21, 72);
+            this.lm.Name = "lm";
+            this.lm.Size = new System.Drawing.Size(32, 15);
+            this.lm.TabIndex = 19;
+            this.lm.Text = "April";
             // 
-            // label2
+            // completedPaymentsText
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(68, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 32);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "100,000";
+            this.completedPaymentsText.AutoSize = true;
+            this.completedPaymentsText.BackColor = System.Drawing.Color.Transparent;
+            this.completedPaymentsText.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completedPaymentsText.ForeColor = System.Drawing.Color.ForestGreen;
+            this.completedPaymentsText.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.completedPaymentsText.Location = new System.Drawing.Point(58, 36);
+            this.completedPaymentsText.Name = "completedPaymentsText";
+            this.completedPaymentsText.Size = new System.Drawing.Size(112, 32);
+            this.completedPaymentsText.TabIndex = 5;
+            this.completedPaymentsText.Text = "100,000";
             // 
             // label3
             // 
@@ -475,34 +472,6 @@
             this.pictureBox5.TabIndex = 47;
             this.pictureBox5.TabStop = false;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(782, 195);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(156, 73);
-            this.button6.TabIndex = 50;
-            this.button6.Text = "Returens";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(875, 202);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 49;
-            this.pictureBox7.TabStop = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -515,18 +484,18 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Busy / All Emp";
             // 
-            // label9
+            // busy
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Crimson;
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label9.Location = new System.Drawing.Point(1, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 32);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "05";
+            this.busy.AutoSize = true;
+            this.busy.BackColor = System.Drawing.Color.Transparent;
+            this.busy.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.busy.ForeColor = System.Drawing.Color.Crimson;
+            this.busy.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.busy.Location = new System.Drawing.Point(13, 36);
+            this.busy.Name = "busy";
+            this.busy.Size = new System.Drawing.Size(29, 32);
+            this.busy.TabIndex = 1;
+            this.busy.Text = "0";
             // 
             // pictureBox9
             // 
@@ -584,7 +553,7 @@
             this.panel2.Controls.Add(this.AllEmp);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.busy);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(25)))));
@@ -659,8 +628,6 @@
             this.Controls.Add(this.Register);
             this.Controls.Add(this.Assign);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.makepayment);
             this.Controls.Add(this.panel3);
@@ -691,7 +658,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -712,15 +678,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label TotIncome;
+        private System.Windows.Forms.Label upcome;
         private System.Windows.Forms.Label MonthLB3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lm;
+        private System.Windows.Forms.Label completedPaymentsText;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label6;
@@ -732,10 +698,8 @@
         private System.Windows.Forms.TextBox notification;
         private System.Windows.Forms.Button makepayment;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label busy;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label AllEmp;

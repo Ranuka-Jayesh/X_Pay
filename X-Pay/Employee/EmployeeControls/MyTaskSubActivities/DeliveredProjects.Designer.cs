@@ -47,14 +47,15 @@
             this.projectID = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PID = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.DeliveredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataviwe)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProjectFiles)).BeginInit();
@@ -83,10 +84,11 @@
             this.Project_ID,
             this.DeliveryDate,
             this.Document,
-            this.Status});
+            this.Status,
+            this.DeliveredDate});
             this.dataviwe.Location = new System.Drawing.Point(29, 87);
             this.dataviwe.Name = "dataviwe";
-            this.dataviwe.Size = new System.Drawing.Size(540, 150);
+            this.dataviwe.Size = new System.Drawing.Size(643, 150);
             this.dataviwe.TabIndex = 42;
             // 
             // DeliveryID
@@ -254,6 +256,26 @@
             this.PID.TabIndex = 122;
             this.PID.TextChanged += new System.EventHandler(this.Epayment_TextChanged);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(23, 119);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(300, 40);
+            this.textBox2.TabIndex = 119;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(20, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 15);
+            this.label6.TabIndex = 115;
+            this.label6.Text = "Project ID";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -265,6 +287,25 @@
             this.label4.Size = new System.Drawing.Size(76, 15);
             this.label4.TabIndex = 121;
             this.label4.Text = "Special Note";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(23, 79);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 3);
+            this.panel1.TabIndex = 114;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(259, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 53);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 117;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // button2
             // 
@@ -281,14 +322,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(23, 119);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 40);
-            this.textBox2.TabIndex = 119;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -301,40 +334,14 @@
             this.label5.TabIndex = 118;
             this.label5.Text = "Choose Fiel";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(259, 29);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 53);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 117;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(20, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
-            this.label6.TabIndex = 115;
-            this.label6.Text = "Project ID";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(23, 79);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 3);
-            this.panel1.TabIndex = 114;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // DeliveredDate
+            // 
+            this.DeliveredDate.HeaderText = "Delivered Date";
+            this.DeliveredDate.Name = "DeliveredDate";
             // 
             // DeliveredProjects
             // 
@@ -388,5 +395,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Document;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeliveredDate;
     }
 }

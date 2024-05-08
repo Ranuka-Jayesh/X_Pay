@@ -26,10 +26,11 @@ namespace X_Pay.Employee.EmployeeControls
         private void EmpHome_Load(object sender, EventArgs e)
         {
             ongoings();
-            upcoming();
             timetracking();
             del();
+            loadPendingPayments();
             allp();
+            incomes();
         }
         private void ongoings()
         {
@@ -97,30 +98,38 @@ namespace X_Pay.Employee.EmployeeControls
             // Optionally format the rest directly here or in another loop
           
         }
-        private void upcoming()
+        private void loadPendingPayments()
         {
-            // Define the date range for the last month
             DateTime endDate = DateTime.Now;
             DateTime startDate = endDate.AddMonths(-1);
             upmon.Text = endDate.ToString("MMMM");
 
-            // Query to get the total of Epayments for the given EmployeeID
-            string query = $"SELECT SUM(Amount) FROM Payments WHERE EmployeeID = {EmployeeID} AND Status = 'Pending';";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters in this query
+            // Updated query with parameter for EmployeeID
+            string query = $"SELECT ISNULL(SUM(Amount), 0) FROM Payments WHERE Status = 'Pending' AND EmployeeID = {EmployeeID}";
 
             db database = new db();
-            decimal? totalEpayments = database.ExecuteScalar(query, parameters);
+            // Execute the scalar query
+            int totalAmount = Convert.ToInt32(database.ExecuteScalar(query, new SqlParameter[] { }));
 
-            // Formatting and displaying the total Epayments in a label
-            if (totalEpayments == null || totalEpayments == 0)
-            {
-                Upcomings.Text = "No payments";
-            }
-            else
-            {
-                Upcomings.Text = $"{totalEpayments}"; // Formats the number as currency
-            }
+            // Update the label with the total amount formatted as currency
+            Upcomings.Text = totalAmount.ToString();
         }
+        private void incomes()
+        {
+            DateTime endDate = DateTime.Now;
+            DateTime startDate = endDate.AddMonths(-1);
+            monthss.Text = endDate.ToString("MMMM");
+            // Updated query with parameter for EmployeeID
+            string query = $"SELECT ISNULL(SUM(Amount), 0) FROM Payments WHERE Status = 'Paid' AND EmployeeID = {EmployeeID}";
+
+            db database = new db();
+            // Execute the scalar query
+            int totalAmount = Convert.ToInt32(database.ExecuteScalar(query, new SqlParameter[] { }));
+
+            // Update the label with the total amount formatted as currency
+            inco.Text = totalAmount.ToString();
+        }
+
         private void del()
         {
             // Define the date range for the last month

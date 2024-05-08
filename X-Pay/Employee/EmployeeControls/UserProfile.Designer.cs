@@ -39,6 +39,10 @@
             this.educations = new System.Windows.Forms.Label();
             this.skills = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RegisteredDate = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -48,17 +52,14 @@
             this.cp = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.rt = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.totinco = new System.Windows.Forms.Label();
+            this.all = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.RegisteredDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -195,6 +196,54 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Details";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(179, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "AGE :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(586, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Educations :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(585, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Skills :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // RegisteredDate
+            // 
+            this.RegisteredDate.AutoSize = true;
+            this.RegisteredDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisteredDate.ForeColor = System.Drawing.Color.White;
+            this.RegisteredDate.Location = new System.Drawing.Point(704, 158);
+            this.RegisteredDate.Name = "RegisteredDate";
+            this.RegisteredDate.Size = new System.Drawing.Size(110, 16);
+            this.RegisteredDate.TabIndex = 23;
+            this.RegisteredDate.Text = "Registered Date";
+            this.RegisteredDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
@@ -290,68 +339,69 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.rt);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.totinco);
+            this.groupBox3.Controls.Add(this.all);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(677, 251);
+            this.groupBox3.Location = new System.Drawing.Point(662, 251);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(241, 213);
+            this.groupBox3.Size = new System.Drawing.Size(256, 213);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Working Summery";
             // 
-            // label16
+            // rt
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(128, 146);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(21, 16);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "00";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.rt.AutoSize = true;
+            this.rt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rt.ForeColor = System.Drawing.Color.White;
+            this.rt.Location = new System.Drawing.Point(126, 146);
+            this.rt.Name = "rt";
+            this.rt.Size = new System.Drawing.Size(21, 16);
+            this.rt.TabIndex = 28;
+            this.rt.Text = "00";
+            this.rt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(19, 146);
+            this.label15.Location = new System.Drawing.Point(17, 146);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 16);
             this.label15.TabIndex = 27;
             this.label15.Text = "Rattings";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label14
+            // totinco
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(128, 72);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(21, 16);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "00";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.totinco.AutoSize = true;
+            this.totinco.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totinco.ForeColor = System.Drawing.Color.White;
+            this.totinco.Location = new System.Drawing.Point(161, 72);
+            this.totinco.Name = "totinco";
+            this.totinco.Size = new System.Drawing.Size(21, 16);
+            this.totinco.TabIndex = 26;
+            this.totinco.Text = "00";
+            this.totinco.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label13
+            // all
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(128, 46);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(21, 16);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "00";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.all.AutoSize = true;
+            this.all.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.all.ForeColor = System.Drawing.Color.White;
+            this.all.Location = new System.Drawing.Point(128, 46);
+            this.all.Name = "all";
+            this.all.Size = new System.Drawing.Size(21, 16);
+            this.all.TabIndex = 25;
+            this.all.Text = "00";
+            this.all.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label12
             // 
@@ -389,53 +439,17 @@
             this.label6.Text = "Registered Date";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // RegisteredDate
+            // label4
             // 
-            this.RegisteredDate.AutoSize = true;
-            this.RegisteredDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisteredDate.ForeColor = System.Drawing.Color.White;
-            this.RegisteredDate.Location = new System.Drawing.Point(704, 158);
-            this.RegisteredDate.Name = "RegisteredDate";
-            this.RegisteredDate.Size = new System.Drawing.Size(110, 16);
-            this.RegisteredDate.TabIndex = 23;
-            this.RegisteredDate.Text = "Registered Date";
-            this.RegisteredDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(585, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Skills :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(586, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Educations :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(179, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "AGE :";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(128, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 16);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "LKR.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // UserProfile
             // 
@@ -486,14 +500,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label rt;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label totinco;
+        private System.Windows.Forms.Label all;
         private System.Windows.Forms.Label RegisteredDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

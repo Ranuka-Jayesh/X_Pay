@@ -49,7 +49,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataview = new System.Windows.Forms.DataGridView();
+            this.PaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.filter = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataview)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -119,6 +132,8 @@
             this.employeeID.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeID.ForeColor = System.Drawing.SystemColors.Window;
             this.employeeID.FormattingEnabled = true;
+            this.employeeID.Items.AddRange(new object[] {
+            ""});
             this.employeeID.Location = new System.Drawing.Point(28, 341);
             this.employeeID.Name = "employeeID";
             this.employeeID.Size = new System.Drawing.Size(200, 24);
@@ -288,11 +303,119 @@
             this.label3.TabIndex = 128;
             this.label3.Text = "Upload Slip";
             // 
+            // dataview
+            // 
+            this.dataview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.dataview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PaymentID,
+            this.Employee_ID,
+            this.ProjectID,
+            this.Amount,
+            this.PaymentDate,
+            this.Status,
+            this.Receipt});
+            this.dataview.Location = new System.Drawing.Point(28, 130);
+            this.dataview.Name = "dataview";
+            this.dataview.Size = new System.Drawing.Size(743, 171);
+            this.dataview.TabIndex = 129;
+            this.dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataview_CellContentClick);
+            // 
+            // PaymentID
+            // 
+            this.PaymentID.HeaderText = "PaymentID";
+            this.PaymentID.Name = "PaymentID";
+            // 
+            // Employee_ID
+            // 
+            this.Employee_ID.HeaderText = "EmployeeID";
+            this.Employee_ID.Name = "Employee_ID";
+            // 
+            // ProjectID
+            // 
+            this.ProjectID.HeaderText = "ProjectID";
+            this.ProjectID.Name = "ProjectID";
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            // 
+            // PaymentDate
+            // 
+            this.PaymentDate.HeaderText = "PaymentDate";
+            this.PaymentDate.Name = "PaymentDate";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            // 
+            // Receipt
+            // 
+            this.Receipt.HeaderText = "Receipt";
+            this.Receipt.Name = "Receipt";
+            // 
+            // filter
+            // 
+            this.filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filter.ForeColor = System.Drawing.Color.White;
+            this.filter.FormattingEnabled = true;
+            this.filter.Items.AddRange(new object[] {
+            "All",
+            "Paid",
+            "Pending"});
+            this.filter.Location = new System.Drawing.Point(568, 94);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(203, 24);
+            this.filter.TabIndex = 130;
+            this.filter.Text = "ALL";
+            this.filter.SelectedIndexChanged += new System.EventHandler(this.filter_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(26, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 15);
+            this.label5.TabIndex = 133;
+            this.label5.Text = "Search";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(29, 95);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 19);
+            this.textBox1.TabIndex = 132;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(29, 117);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 3);
+            this.panel3.TabIndex = 131;
+            // 
             // Payments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.filter);
+            this.Controls.Add(this.dataview);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
@@ -317,6 +440,7 @@
             this.Size = new System.Drawing.Size(978, 487);
             this.Load += new System.EventHandler(this.Payments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +468,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataview;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Employee_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Receipt;
+        private System.Windows.Forms.ComboBox filter;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

@@ -285,6 +285,7 @@
             this.SpecialNote.Name = "SpecialNote";
             this.SpecialNote.Size = new System.Drawing.Size(294, 19);
             this.SpecialNote.TabIndex = 103;
+            this.SpecialNote.TextChanged += new System.EventHandler(this.SpecialNote_TextChanged);
             // 
             // panel4
             // 

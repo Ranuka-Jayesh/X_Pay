@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -119,5 +120,62 @@ namespace X_Pay.AdminControls
         {
 
         }
+
+        private void seach_TextChanged(object sender, EventArgs e)
+        {
+            string searchdata = seach.Text.Trim(); // Trim to remove leading and trailing spaces
+
+            if (string.IsNullOrEmpty(searchdata))
+            {
+                ClearFields();
+            }
+            else
+            {
+                var reader = new db().Select(string.IsNullOrWhiteSpace(searchdata) ? "SELECT * FROM Projects WHERE ProjectID LIKE '" + searchdata + "'" : "SELECT Projects.*, AssignProject.EmployeeID FROM Projects LEFT JOIN AssignProject ON Projects.ProjectID = AssignProject.ProjectID WHERE Projects.ProjectID LIKE '%" + searchdata + "%'");
+
+                if (reader.Read())
+                {
+                    PID.Text = (string)reader["ProjectID"].ToString();
+                    EID.Text = (string)reader["EmployeeID"].ToString();
+                    status.Text = (string)reader["Status"];
+
+                    DateTime deadline = (DateTime)reader["Deadline"];
+                    TimeSpan remainingTime = deadline - DateTime.Now;
+
+                    string remainingTimeString = "";
+
+                    if (remainingTime.Days > 0)
+                        remainingTimeString += $"{remainingTime.Days} D, ";
+
+                    if (remainingTime.Hours > 0)
+                        remainingTimeString += $"{remainingTime.Hours} hr, ";
+
+                    if (remainingTime.Minutes > 0)
+                        remainingTimeString += $"{remainingTime.Minutes} m";
+
+                    remind.Text = remainingTimeString;
+                }
+                else
+                {
+                    ClearFields(); // Clear fields if no matching record found
+                }
+
+                reader.Close(); // Close the reader after use
+            }
+        }
+
+        private void ClearFields()
+        {
+            PID.Text = "";
+            EID.Text = "";
+            status.Text = "";
+            remind.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
+

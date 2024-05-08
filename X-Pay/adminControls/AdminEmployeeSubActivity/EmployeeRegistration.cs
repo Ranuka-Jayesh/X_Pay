@@ -14,13 +14,14 @@ using System.Collections;
 using System.Xml.Linq;
 using System.Windows.Markup;
 using System.Text.RegularExpressions;
+using System.Reflection.Emit;
 
 
 namespace X_Pay.AdminControls.AdminEmployeeSubActivity
 {
     public partial class EmployeeRegistration : UserControl
     {
-        string imagelocations = "";
+        string selectedFilePath;
         public EmployeeRegistration()
         {
             InitializeComponent();
@@ -28,18 +29,43 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
 
         private void dp_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg|All Files (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.Multiselect = false;
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string selectedFileName = openFileDialog.FileName.ToString();
-                dp.Image = Image.FromFile(selectedFileName);
-                imagelocations = selectedFileName;
+                // Get the selected file path
+                selectedFilePath = openFileDialog1.FileName;
+
+                // Extract the file name from the file path
+                string fileName = Path.GetFileName(selectedFilePath);
+
+                // Specify the fixed path to the 'User' directory
+                string userPath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\User";
+
+                // Check if the 'User' directory exists, if not create it
+                if (!Directory.Exists(userPath))
+                {
+                    Directory.CreateDirectory(userPath);
+                }
+
+                // Define the path to save the file inside the 'User' directory
+                string destinationFilePath = Path.Combine(userPath, fileName);
+
+                // Copy the file to the 'User' directory
+                try
+                {
+                    File.Copy(selectedFilePath, destinationFilePath, true);
+                    // Update the stored file path to the new path
+                    selectedFilePath = destinationFilePath;
+
+                    // Optionally, show a message box (comment out if not needed)
+                    MessageBox.Show("File selected and saved to: " + destinationFilePath, "File Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while copying the file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
 
         private void clearvalues()
         {
@@ -192,26 +218,12 @@ namespace X_Pay.AdminControls.AdminEmployeeSubActivity
                 MessageBox.Show("Username already exists. Please choose another.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Get the next image number
-            string basePath = @"C:\Users\Ranuka Jayesh\Desktop\Xpay\NewGit\X-Pay\Images\UserProfile\";
-            int imageNumber = GetNextImageNumber(basePath);
-
-            string userImagePath = Path.Combine(basePath, username);
-            Directory.CreateDirectory(userImagePath);
-
-            string imagelocation = imagelocations;
-            string newImageName = imageNumber.ToString() + Path.GetExtension(imagelocation); // New image name with number
-            string imagePath = Path.Combine(userImagePath, newImageName);
-
-
             // Build SQL query to insert the new employee record
             string query = $@"INSERT INTO Employee (FirstName, LastName, Email, Address, Position, Education, Username, Password, Contact, Skills, DateOfBirth, ProfilePic, Registerdate) 
-                          VALUES ('{firstname}', '{lastname}', '{email}', '{address}', '{position}', '{education}', '{username}', '{password}', '{phone}', '{skills}', '{dateOfBirth}', '{imagePath}', '{registrationDate}')";
+                          VALUES ('{firstname}', '{lastname}', '{email}', '{address}', '{position}', '{education}', '{username}', '{password}', '{phone}', '{skills}', '{dateOfBirth}', '{selectedFilePath}', '{registrationDate}')";
 
             try
             {
-                File.Copy(imagelocation, imagePath, true);
                 // Execute SQL query
                 DB.Execute(query);
                 MessageBox.Show("Data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

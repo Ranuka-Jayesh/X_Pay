@@ -81,13 +81,13 @@
             this.daycontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.bl4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ongoing = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lb6 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -749,7 +749,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.bl4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -760,17 +760,17 @@
             this.panel1.Size = new System.Drawing.Size(107, 178);
             this.panel1.TabIndex = 19;
             // 
-            // label2
+            // bl4
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(27, 145);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "April";
+            this.bl4.AutoSize = true;
+            this.bl4.BackColor = System.Drawing.Color.Transparent;
+            this.bl4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bl4.ForeColor = System.Drawing.Color.White;
+            this.bl4.Location = new System.Drawing.Point(27, 145);
+            this.bl4.Name = "bl4";
+            this.bl4.Size = new System.Drawing.Size(32, 15);
+            this.bl4.TabIndex = 11;
+            this.bl4.Text = "April";
             // 
             // label1
             // 
@@ -822,7 +822,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(31)))), ((int)(((byte)(75)))));
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lb6);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label31);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -833,17 +833,17 @@
             this.panel2.Size = new System.Drawing.Size(107, 178);
             this.panel2.TabIndex = 21;
             // 
-            // label5
+            // lb6
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(29, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "April";
+            this.lb6.AutoSize = true;
+            this.lb6.BackColor = System.Drawing.Color.Transparent;
+            this.lb6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb6.ForeColor = System.Drawing.Color.White;
+            this.lb6.Location = new System.Drawing.Point(29, 144);
+            this.lb6.Name = "lb6";
+            this.lb6.Size = new System.Drawing.Size(32, 15);
+            this.lb6.TabIndex = 11;
+            this.lb6.Text = "April";
             // 
             // label6
             // 
@@ -997,11 +997,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label bl4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ongoing;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lb6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.PictureBox pictureBox2;

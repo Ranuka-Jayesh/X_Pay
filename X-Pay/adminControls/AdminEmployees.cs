@@ -17,7 +17,8 @@ namespace X_Pay.AdminControls
         {
             InitializeComponent();
             employeecounts();
-            upcoming();
+            loadPendingPayments();
+            loadCompletedPayments();
         }
 
         private void employeecounts()
@@ -28,43 +29,54 @@ namespace X_Pay.AdminControls
             db database = new db();
             int count = database.ExecuteScalar(query, parameters);
 
-            if (count == 0)
-            {
-                AllEmp.Text = "00";
-            }
-            else if (count < 10)
-            {
-                AllEmp.Text = "0" + count.ToString();
-            }
-            else
-            {
-                AllEmp.Text = count.ToString();
-            }
-        }
-        private void upcoming()
-        {
-            // Define the date range for the last month
-            DateTime endDate = DateTime.Now;
-            DateTime startDate = endDate.AddMonths(-1);
-            MonthLB3.Text = endDate.ToString("MMMM");
+            AllEmp.Text = count.ToString("D2");
 
-            // Query to get the total of Epayments for the given EmployeeID
-            string query = $"SELECT SUM(Amount) FROM Payments";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters in this query
+            string busyQuery = @"
+             SELECT COUNT(*) FROM (
+            SELECT EmployeeID
+            FROM AssignProject
+            GROUP BY EmployeeID
+            HAVING COUNT(ProjectID) > 5
+            ) AS BusyEmployees";
+
+            int busyCount = database.ExecuteScalar(busyQuery, parameters);
+            busy.Text = busyCount.ToString();
+        }
+        private void loadPendingPayments()
+        {
+            string query = "SELECT SUM(Amount) FROM Payments WHERE Status = 'Pending'";
+            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed for this query
 
             db database = new db();
-            decimal? totalEpayments = database.ExecuteScalar(query, parameters);
+            object result = database.ExecuteScalar(query, parameters);
 
-            // Formatting and displaying the total Epayments in a label
-            if (totalEpayments == null || totalEpayments == 0)
+            if (result != DBNull.Value)
             {
-                TotIncome.Text = "No payments";
+                upcome.Text = $"{result}"; // Formats the number as a currency
             }
             else
             {
-                TotIncome.Text = $"{totalEpayments}"; // Formats the number as currency
+                upcome.Text = "0.00";
             }
         }
+        private void loadCompletedPayments()
+        {
+            string query = "SELECT SUM(Amount) FROM Payments WHERE Status = 'Paid'";
+            SqlParameter[] parameters = new SqlParameter[] { };
+
+            db database = new db();
+            object result = database.ExecuteScalar(query, parameters);
+
+            if (result != DBNull.Value)
+            {
+                completedPaymentsText.Text = $"{result}";
+            }
+            else
+            {
+                completedPaymentsText.Text = "0.00";
+            }
+        }
+
 
         private void Register_Click(object sender, EventArgs e)
         {
@@ -123,11 +135,7 @@ namespace X_Pay.AdminControls
 
         private void button6_Click(object sender, EventArgs e)
         {
-            AdminEmployeeSubActivity.ProjectReturns projectReturns = new AdminEmployeeSubActivity.ProjectReturns();
-            MainPanel.Controls.Clear();
-            MainPanel.BringToFront();
-            MainPanel.Focus();
-            MainPanel.Controls.Add(projectReturns);
+            
         }
 
         private void label7_Click(object sender, EventArgs e)

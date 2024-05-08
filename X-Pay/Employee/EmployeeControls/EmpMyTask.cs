@@ -33,11 +33,7 @@ namespace X_Pay.Employee.EmployeeControls
 
         private void Register_Click(object sender, EventArgs e)
         {
-            MyTaskSubActivities.EmpAllProjects AllProjects = new MyTaskSubActivities.EmpAllProjects();
-            MainPanel.Controls.Clear();
-            MainPanel.BringToFront();
-            MainPanel.Focus();
-            MainPanel.Controls.Add(AllProjects);
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -60,11 +56,7 @@ namespace X_Pay.Employee.EmployeeControls
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MyTaskSubActivities.ReturnProjects ReturnProjects = new MyTaskSubActivities.ReturnProjects();
-            MainPanel.Controls.Clear();
-            MainPanel.BringToFront();
-            MainPanel.Focus();
-            MainPanel.Controls.Add(ReturnProjects);
+            
         }
 
         private void MainPanel_Paint(object sender, PaintEventArgs e)
