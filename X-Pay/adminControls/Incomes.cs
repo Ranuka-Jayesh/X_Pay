@@ -21,7 +21,7 @@ namespace X_Pay.AdminControls
         {
             InitializeComponent();
             chartloading();
-            loadProjectCountsByDate();
+            loadProjectAndEmployeeCountsByDate();
             tot.Text = totalIncome.ToString();
             eptot.Text = totalPayments.ToString();
             profits.Text = Profit.ToString();
@@ -29,11 +29,11 @@ namespace X_Pay.AdminControls
 
         private void Incomes_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void chart1_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void getFinancialTotals()
         {
@@ -90,51 +90,93 @@ namespace X_Pay.AdminControls
         }
         private void chart2_Click(object sender, EventArgs e)
         {
-            
+
         }
-        private void loadProjectCountsByDate()
+        private void loadProjectAndEmployeeCountsByDate()
         {
-            string query = @"
-            SELECT CONVERT(DATE, AcceptDate) AS Date, COUNT(*) AS ProjectCount
-            FROM Projects
-            GROUP BY CONVERT(DATE, AcceptDate)
-            ORDER BY Date;";
+            string projectQuery = @"
+                SELECT CONVERT(DATE, AcceptDate) AS Date, COUNT(*) AS ProjectCount
+                FROM Projects
+                GROUP BY CONVERT(DATE, AcceptDate)
+                ORDER BY Date;";
+
+            string employeeQuery = @"
+                SELECT CONVERT(DATE, RegisterDate) AS Date, COUNT(*) AS EmployeeCount
+                FROM Employee
+                GROUP BY CONVERT(DATE, RegisterDate)
+                ORDER BY Date;";
 
             db database = new db();
-            SqlDataReader reader = database.Select(query);
-            DataTable dt = new DataTable();
 
-            if (reader != null)
+            // Fetch project data
+            SqlDataReader projectReader = database.Select(projectQuery);
+            DataTable projectDt = new DataTable();
+
+            if (projectReader != null)
             {
-                dt.Load(reader);
-                reader.Close(); // It's important to close the reader
+                projectDt.Load(projectReader);
+                projectReader.Close(); // Close the reader
 
-                // Configure the chart for spline
+                // Clear any existing series on the chart
                 chart2.Series.Clear();
-                Series series = chart2.Series.Add("ProjectsByDate");
-                series.ChartType = SeriesChartType.Spline;
 
-                foreach (DataRow row in dt.Rows)
+                // Add a new series for project data
+                Series projectSeries = chart2.Series.Add("ProjectsByDate");
+                projectSeries.ChartType = SeriesChartType.Spline; // Use Spline chart type
+
+                foreach (DataRow row in projectDt.Rows)
                 {
                     string date = Convert.ToDateTime(row["Date"]).ToShortDateString();
-                    int count = Convert.ToInt32(row["ProjectCount"]);
-                    series.Points.AddXY(date, count);
+                    int projectCount = Convert.ToInt32(row["ProjectCount"]);
+                    projectSeries.Points.AddXY(date, projectCount);
                 }
-
-                // Format the chart
-                series.BorderWidth = 3;
-                chart2.ChartAreas[0].AxisX.Interval = 1;
-                chart2.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-                chart2.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
-                chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
-                chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                chart2.Invalidate(); // Refresh the chart
             }
             else
             {
-                MessageBox.Show("Error loading data.");
+                MessageBox.Show("Error loading project data.");
+                return; // Exit method if project data loading fails
             }
+
+            // Fetch employee data
+            SqlDataReader employeeReader = database.Select(employeeQuery);
+            DataTable employeeDt = new DataTable();
+
+            if (employeeReader != null)
+            {
+                employeeDt.Load(employeeReader);
+                employeeReader.Close(); // Close the reader
+
+                // Add a new series for employee data
+                Series employeeSeries = chart2.Series.Add("EmployeesByDate");
+                employeeSeries.ChartType = SeriesChartType.Spline; // Use Spline chart type
+
+                foreach (DataRow row in employeeDt.Rows)
+                {
+                    string date = Convert.ToDateTime(row["Date"]).ToShortDateString();
+                    int employeeCount = Convert.ToInt32(row["EmployeeCount"]);
+                    employeeSeries.Points.AddXY(date, employeeCount);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error loading employee data.");
+                return; // Exit method if employee data loading fails
+            }
+
+            // Format the chart
+            foreach (Series series in chart2.Series)
+            {
+                series.BorderWidth = 3;
+            }
+            chart2.ChartAreas[0].AxisX.Interval = 1;
+            chart2.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            chart2.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
+            chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.LightGray;
+            chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+
+            chart2.Invalidate(); // Refresh the chart
         }
+    
 
     }
 }

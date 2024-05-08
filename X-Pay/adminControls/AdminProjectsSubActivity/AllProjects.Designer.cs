@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -65,17 +65,17 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.dataviwe = new System.Windows.Forms.DataGridView();
+            this.filter = new System.Windows.Forms.ComboBox();
             this.PROJECTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLIENTNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ORGANIZATION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROJECTTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUBJECTTYPES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEADLINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONTACT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEADLINE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AcceptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataviwe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -471,9 +471,9 @@
             // 
             // dataviwe
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataviwe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataviwe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataviwe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
             this.dataviwe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataviwe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -482,8 +482,8 @@
             this.ORGANIZATION,
             this.PROJECTTYPE,
             this.SUBJECTTYPES,
-            this.DEADLINE,
             this.CONTACT,
+            this.DEADLINE,
             this.PRICE,
             this.PSTATUS,
             this.AcceptDate});
@@ -491,6 +491,25 @@
             this.dataviwe.Name = "dataviwe";
             this.dataviwe.Size = new System.Drawing.Size(946, 186);
             this.dataviwe.TabIndex = 119;
+            // 
+            // filter
+            // 
+            this.filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
+            this.filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filter.ForeColor = System.Drawing.Color.White;
+            this.filter.FormattingEnabled = true;
+            this.filter.Items.AddRange(new object[] {
+            "All",
+            "Running",
+            "Pending",
+            "Delivered"});
+            this.filter.Location = new System.Drawing.Point(772, 42);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(203, 24);
+            this.filter.TabIndex = 120;
+            this.filter.Text = "ALL";
+            this.filter.SelectedIndexChanged += new System.EventHandler(this.filter_SelectedIndexChanged);
             // 
             // PROJECTID
             // 
@@ -517,15 +536,15 @@
             this.SUBJECTTYPES.HeaderText = "SUBJECTTYPES";
             this.SUBJECTTYPES.Name = "SUBJECTTYPES";
             // 
-            // DEADLINE
-            // 
-            this.DEADLINE.HeaderText = "DEADLINE";
-            this.DEADLINE.Name = "DEADLINE";
-            // 
             // CONTACT
             // 
             this.CONTACT.HeaderText = "CONTACT";
             this.CONTACT.Name = "CONTACT";
+            // 
+            // DEADLINE
+            // 
+            this.DEADLINE.HeaderText = "DEADLINE";
+            this.DEADLINE.Name = "DEADLINE";
             // 
             // PRICE
             // 
@@ -541,25 +560,6 @@
             // 
             this.AcceptDate.HeaderText = "AcceptDate";
             this.AcceptDate.Name = "AcceptDate";
-            // 
-            // filter
-            // 
-            this.filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-            this.filter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filter.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filter.ForeColor = System.Drawing.Color.White;
-            this.filter.FormattingEnabled = true;
-            this.filter.Items.AddRange(new object[] {
-            "All",
-            "Running",
-            "Pending",
-            "Delivered"});
-            this.filter.Location = new System.Drawing.Point(772, 42);
-            this.filter.Name = "filter";
-            this.filter.Size = new System.Drawing.Size(203, 24);
-            this.filter.TabIndex = 120;
-            this.filter.Text = "ALL";
-            this.filter.SelectedIndexChanged += new System.EventHandler(this.filter_SelectedIndexChanged);
             // 
             // AllProjects
             // 
@@ -650,16 +650,16 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataviwe;
+        private System.Windows.Forms.ComboBox filter;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROJECTID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLIENTNAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn ORGANIZATION;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROJECTTYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECTTYPES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEADLINE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONTACT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEADLINE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcceptDate;
-        private System.Windows.Forms.ComboBox filter;
     }
 }
