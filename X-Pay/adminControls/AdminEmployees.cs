@@ -44,24 +44,26 @@ namespace X_Pay.AdminControls
         }
         private void loadPendingPayments()
         {
-            string query = "SELECT SUM(Amount) FROM Payments WHERE Status = 'Pending'";
-            SqlParameter[] parameters = new SqlParameter[] { }; // No parameters needed for this query
+            string query = "SELECT ISNULL(SUM(Amount) ,0 ) FROM Payments WHERE Status = 'Pending'";
+            SqlParameter[] parameters = new SqlParameter[] { };
 
             db database = new db();
             object result = database.ExecuteScalar(query, parameters);
 
-            if (result != DBNull.Value)
-            {
-                upcome.Text = $"{result}"; // Formats the number as a currency
-            }
-            else
+            if (result == DBNull.Value || result == null)
             {
                 upcome.Text = "0.00";
             }
+            else
+            {
+                decimal amount = Convert.ToDecimal(result);
+                upcome.Text = amount.ToString();
+            }
         }
+
         private void loadCompletedPayments()
         {
-            string query = "SELECT SUM(Amount) FROM Payments WHERE Status = 'Paid'";
+            string query = "SELECT ISNULL(SUM(Amount),0) FROM Payments WHERE Status = 'Paid'";
             SqlParameter[] parameters = new SqlParameter[] { };
 
             db database = new db();

@@ -35,19 +35,15 @@ namespace X_Pay
         {
 
         }
-
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void livetime_Tick(object sender, EventArgs e)
         {
             livetimes.Text = DateTime.Now.ToLongTimeString();
             livedate.Text = DateTime.Now.ToLongDateString();
         }
-
         private void closeico_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -62,8 +58,6 @@ namespace X_Pay
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-
         private void AdminDash_Load(object sender, EventArgs e)
         {
             AdminControls.AdminHome Home = new AdminControls.AdminHome();
@@ -149,7 +143,6 @@ namespace X_Pay
         {
             label6.Hide();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             AdminControls.Incomes Incomes = new AdminControls.Incomes();
